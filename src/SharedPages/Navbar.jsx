@@ -1,13 +1,14 @@
 import { Link, useLocation } from "react-router-dom";
 import { FcDonate } from "react-icons/fc";
 import logo from '../assets/images/logo.png'
-// import useAuth from "../AuthProvider/UseAuth";
+import UseAuth from "../Hooks/UseAuth";
+
 // import useCart from "../Hooks/useCart";
 // import { Background } from "react-parallax";
 // import useAdmin from "../Hooks/useAdmin";
 
 const Navbar = () => {
-    // const { user, logOut } = useAuth();
+    const { user, logOut } = UseAuth();
     // console.log(user);
     // const [cart] = useCart();
 
@@ -19,15 +20,15 @@ const Navbar = () => {
         return location.pathname === path ? { color: 'red', Background: 'yellow' } : {};
     };
 
-    // const handleLogOut = () => [
-    //     logOut()
-    // ]
+    const handleLogOut = () => [
+        logOut()
+    ]
 
     const navOptions = <>
         <li><Link to="/" style={isActive("/")}><button>Home</button></Link></li>
         <li><Link to="/donationRequest" style={isActive("/donationRequest")}>Donation Requests</Link></li>
         <li><Link to="/blog" style={isActive("/blog")}>blog</Link></li>
-        <li><Link to="/login" style={isActive("/login")}>Login</Link></li>
+        {/* <li><Link to="/login" style={isActive("/login")}>Login</Link></li> */}
 {/* 
         {
             user && isAdmin && <li><Link to="/dashboard/adminHome" style={isActive("/secret")}>Secret</Link></li>
@@ -37,17 +38,14 @@ const Navbar = () => {
         } */}
 
 
-
-        {/* <li> */}
-            {/* { */}
-                {/* user ? <> */}
-                    {/* <span>{user?.displayName}</span> */}
-                    {/* <button onClick={handleLogOut} className="btn btn-ghost text-xl ">LogOut</button> */}
-                {/* </> : <> */}
-                    {/* <Link to="/login">Login</Link> */}
-                {/* </> */}
-            {/* } */}
-        {/* </li> */}
+ 
+        <li>
+            {
+                user ?'' : <>
+                    <Link to="/login">Login</Link>
+                </>
+            }
+        </li>
 
 
 
@@ -78,18 +76,21 @@ const Navbar = () => {
                 <div className="text-white">
                     <ul className="menu menu-horizontal px-1">
                        
-                        <li>
-                            <details>
-                                <summary>
-                                    image
-                                </summary>
-                                <ul className="p-2 bg-base-100 rounded-t-none text-black">
-                                    <li><a>Admin Home</a></li>
-                                    <li><a>Update Profile</a></li>
-                                    <li><a>LogOut</a></li>
-                                </ul>
-                            </details>
-                        </li>
+                        {
+                            user ? <li>
+                                <details>
+                                    <summary>
+                                        <img className="w-10 h-10 rounded-full" src='https://i.ibb.co/LrsdP5F/daniel-lincoln-NR705be-N-CU-unsplash.jpg' alt="" />
+                                    </summary>
+                                    <ul className="p-2 bg-base-100 rounded-t-none text-black">
+                                        <Link to='/dashboard/adminHome'><li><a>Admin Home</a></li></Link>
+                                        <li><a>Update Profile</a></li>
+                                        <li><a onClick={handleLogOut} > LogOut</a></li>
+                                      
+                                    </ul>
+                                </details>
+                            </li> : ''
+                       }
                     </ul>
                 </div>
                 <div className="navbar-end">

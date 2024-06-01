@@ -1,108 +1,160 @@
-import { useEffect, } from 'react';
-// import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
 
+
+
+
+
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useForm } from "react-hook-form"
-// import useAuth from '../AuthProvider/UseAuth';
-// import useAxiosPublic from '../Hooks/useAxiosPublic';
-import SocialLogin from './SocialLogin';
+import { useForm } from 'react-hook-form';
+import useAxiosPublic from '../Hooks/useAxiosPublic';
+import UseAuth from '../Hooks/UseAuth';
+import useLocations from '../Hooks/useLocations';
+
 
 
 const Register = () => {
-    // const { createUser, updateUserProfile } = useAuth();
-    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
-    // const axiosPublic = useAxiosPublic();
+    // const { createUser, updateUserProfile } = UseAuth();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [selectedDistrict, setSelectedDistrict] = useState('');
+    const [selectedUpazila, setSelectedUpazila] = useState('');
+    const axiosPublic = useAxiosPublic();
+    const { createUser, updateUserProfile } = UseAuth();
 
-    // const onSubmit = (data) => {
-    //     console.log(data)
-    //     createUser(data.email, data.password)
-    //         .then(result => {
-    //             const loggedUser = result.user;
-    //             console.log(loggedUser);
-    //             // updateUserProfile(data.name, data.photoURL)
-    //             //     .then(() => {
-    //                     // const userInfo = {
-    //                     //     name: data.name,
-    //                     //     email: data.email,
-    //                     //     photo: data.photoURL
-    //                     // };
-    //                     // axiosPublic.post('/users', userInfo)
-    //                     //     .then(res => {
-    //                     //         if (res.data.insertedId) {
-    //                     //             console.log('User added to the database');
-    //                     //             reset();
+    // const locations = [
+    //     { district: 'Dhaka', upazilas: ['Dhamrai', 'Dohar', 'Keraniganj', 'Nawabganj', 'Savar'] },
+    //     { district: 'Faridpur', upazilas: ['Faridpur Sadar', 'Alfadanga', 'Bhanga', 'Boalmari', 'Charbhadrasan', 'Madhukhali', 'Nagarkanda', 'Sadarpur', 'Saltha'] },
+    //     // Add all the other districts and their respective upazilas here
+    // ];
 
-    //                     //         }
-    //                     //     })
-    //                 })
-    //         })
-    // }
+    const [locations] = useLocations();
+    console.log(typeof locations);
 
 
-    // const captchaRef = useRef(null);
-    // const [disabled, setDisabled] = useState(true);
-    // const { signIn } = useAuth();
+    const onSubmit = (data) => {
+        // console.log(data)
+        createUser(data.email, data.password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.image)
+                    .then(() => {
+                        const userInfo = {
+                                    name: data.name,
+                                    email: data.email,
+                                    district: data.district,
+                                    upazila: data.upazila,
+                                    bloodGroup: data.bloodGroup,
+                                    image: data.image
+                                };
+                        axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                                if (res.data.insertedId) {
+                                    console.log('User added to the database');
+                                    reset();
 
-    // useEffect(() => {
-    //     loadCaptchaEnginge(6);
-    // }, [])
+                                }
+                            })
+                    })
+            })
+    }
 
 
-    // cpatcha check
-    // const handleValidateCaptcha = e => {
-    //     e.preventDefault();
-    //     const user_captcha_value = captchaRef.current.value;
-    //     console.log(user_captcha_value);
-
-    //     if (validateCaptcha(user_captcha_value) == true) {
-    //         alert('Captcha Matched');
-    //         setDisabled(false);
-    //     }
-
-    //     else {
-    //         alert('Captcha Does Not Match');
-    //     }
-    // }
-
-    // console.log(watch('name'));
 
     return (
         <div className="hero min-h-screen mx-auto bg-base-200">
             <div className="hero-content flex-col lg:flex-row-reverse mt-36">
                 <div className="text-center w-[690px] lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <h1 className="text-5xl font-bold">Register now!</h1>
                     <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
                 <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-
-                    {/* form part  */}
-                    {/* onSubmit={handleSubmit(onSubmit)} */}
-                    <form  className="card-body">
-                        {/* name part  */}
+                    <form onSubmit={handleSubmit(onSubmit)} className="card-body">
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Name</span>
                             </label>
-
-                            <input type="text"
-                                {...register("name", { required: true })}
-                                name="name"
-                                placeholder="Name"
-                                className="input input-bordered" />
-
+                            <input type="text" {...register("name", { required: true })} placeholder="Name" className="input input-bordered" />
                             {errors.name && <span className='text-red-600'>This field is required</span>}
                         </div>
 
-                        {/* email part  */}
+                        {/* blood group  */}
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Blood Group</span>
+                            </label>
+                            <select {...register("bloodGroup", { required: true })} className="input input-bordered">
+                                <option value="">--Select Blood Group--</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                            </select>
+                            {errors.bloodGroup && <span className='text-red-600'>This field is required</span>}
+                        </div>
+
+                        {/* Other form controls */}
+
+                        {/* Location selection */}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">District</span>
+                            </label>
+
+                            <select {...register("district", { required: true })} value={selectedDistrict} onChange={(e) => setSelectedDistrict(e.target.value)} className="input input-bordered">
+
+                                <option value="">--Select District--</option>
+
+
+                                {locations.map((location, index) => (
+                                    <option key={index} value={location.district}>{location.district}</option>
+                                ))}
+                                
+                            </select>
+
+
+
+
+
+                            {errors.district && <span className='text-red-600'>This field is required</span>}
+                        </div>
+
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Upazila</span>
+                            </label>
+
+
+                            <select {...register("upazila", { required: true })} value={selectedUpazila} onChange={(e) => setSelectedUpazila(e.target.value)} className="input input-bordered">
+
+                                <option value="">--Select Upazila--</option>
+
+                                {selectedDistrict && locations.find(location => location.district === selectedDistrict)?.upazilas.map((upazila, index) => (
+                                    <option key={index} value={upazila}>{upazila}</option>
+                                ))}
+                            </select>
+
+
+
+
+                            {errors.upazila && <span className='text-red-600'>This field is required</span>}
+                        </div>
+
+                        
+                        {/* email  */}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Email</span>
                             </label>
-                            <input type="email" {...register("email", { required: true })} name="email" placeholder="Email" className="input input-bordered" />
-
+                            <input type="email" {...register("email", { required: true })} placeholder="Email" className="input input-bordered" />
                             {errors.email && <span className='text-red-600'>This field is required</span>}
                         </div>
 
+                        {/* password  */}
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text">Password</span>
@@ -111,35 +163,44 @@ const Register = () => {
                                 required: true,
                                 minLength: 6,
                                 maxLength: 20,
-                                // pattern: /^(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9].*[0-9])(?=.*[a-z])$/
-                            })} name="password" placeholder="password" className="input input-bordered" />
+                            })} placeholder="Password" className="input input-bordered" />
                             {errors.password && <span className='text-red-600'>This field is required</span>}
-
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                            </label>
                         </div>
 
-                        {/* <div className="form-control">
-                            <label className="label">
-                                <LoadCanvasTemplate />
-                            </label>
-
-                            <input ref={captchaRef} type="text" name="captcha" placeholder="Type the above captcha text here" className="input input-bordered" required />
-
-                            <button onClick={handleValidateCaptcha} className='btn btn-outline btn-xs mt-6'>Validate Captcha</button>
+                        {/* photo */}
+                        {/* <div>
+                            <input type="file"
+                                {...register("image", { required: true })}
+                                className="file-input w-full max-w-xs" />
                         </div> */}
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Image</span>
+                            </label>
+                            <input type="text" {...register("image", { required: true })} placeholder="Image Link" className="input input-bordered" />
+                            {errors.email && <span className='text-red-600'>This field is required</span>}
+                        </div>
 
-
+                        
+                        {/* Other form controls */}
 
                         <div className="form-control mt-6">
-                            {/* disabled={disabled} */}
                             <input className="btn btn-primary" type="submit" value="Register" />
                         </div>
+                        {/* <div className="flex justify-center items-center">
+                            <button type='submit' className="btn bg-orange-400 ">Register</button>
+                        </div> */}
                     </form>
 
-                    <Link to='/login'><button>Login</button></Link>
-                    <SocialLogin></SocialLogin>
+
+
+                    <div>
+                        <label className="label">
+                            <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                        </label>
+                        <Link to='/login'><button>Login</button></Link>
+                    </div>
+                  
                 </div>
             </div>
         </div>

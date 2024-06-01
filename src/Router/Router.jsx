@@ -5,7 +5,11 @@ import Home from "../SharedPages/Home";
 
 import Register from '../User/Register'
 import Login from '../User/Login'
-
+import Dashboard from "../Dashboard/Dashboard";
+import AdminHome from "../Dashboard/Admin/AdminHome";
+import UserManagement from '../Dashboard/Admin/UserManagement'
+import DonationRequest from '../Dashboard/Admin/DonationRequest'
+import ContentManagement from '../Dashboard/Admin/ContentManagement'
 
 
 
@@ -32,10 +36,10 @@ export const router = createBrowserRouter([
             }
         ]
     },
-    // {
-    //     path: 'dashboard',
-    //     element: <UserDashBoard></UserDashBoard>,
-    //     children: [
+    {
+        path: 'dashboard',
+        element: <Dashboard></Dashboard>,
+        children: [
     //         //normal user route
     //         {
     //             path: 'userHome',
@@ -54,23 +58,23 @@ export const router = createBrowserRouter([
     //             element: <PaymentHistory></PaymentHistory>
     //         },
     //         //admin routes
-    //         {
-    //             path: 'adminHome',
-    //             element: <AdminHome></AdminHome>
+            {
+                path: 'adminHome',
+                element: <AdminHome></AdminHome>
 
-    //         },
-    //         {
-    //             path: 'users',
-    //             element: <AllUsers></AllUsers>
-    //         },
-    //         {
-    //             path: 'addItems',
-    //             element: <AdminRoute><AddItem></AddItem></AdminRoute>
-    //         },
-    //         {
-    //             path: 'manageItems',
-    //             element: <AdminRoute><ManageItem></ManageItem></AdminRoute>
-    //         },
+            },
+            {
+                path: 'userManagement',
+                element: <UserManagement></UserManagement>
+            },
+            {
+                path: 'donantionRequest',
+                element: <DonationRequest></DonationRequest>
+            },
+            {
+                path: 'contentManagement',
+                element: <ContentManagement></ContentManagement>
+            },
     //         {
     //             path: 'updateItem/:id',
     //             element: <UpdateItem></UpdateItem>,
@@ -80,7 +84,8 @@ export const router = createBrowserRouter([
     //             path: 'manageBooking',
     //             element: <AdminRoute><ManageBooking></ManageBooking></AdminRoute>
     //         }
-    //     ]
-    // }
+            
+        ]
+    }
 ]);
 

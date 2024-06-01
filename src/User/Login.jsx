@@ -3,17 +3,18 @@
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import { Helmet } from 'react-helmet-async';
-// import Swal from 'sweetalert2'
+import Swal from 'sweetalert2'
 // import useAuth from '../AuthProvider/UseAuth';
 import SocialLogin from './SocialLogin';
+import UseAuth from '../Hooks/UseAuth';
 
 const Login = () => {
     // const [disabled, setDisabled] = useState(true);
-    // const { signIn } = useAuth();
-    // const navigate = useNavigate();
+    const { signIn } = UseAuth();
+    const navigate = useNavigate();
     const location = useLocation();
 
-    // const from = location.state?.from?.pathname || "/";
+    const from = location.state?.from?.pathname || "/";
     console.log('state in the location login page', location.state)
 
     // useEffect(() => {
@@ -26,21 +27,21 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
-        // signIn(email, password)
-        //     .then(result => {
-        //         const user = result.user;
-        //         console.log(user);
-        //         Swal.fire({
-        //             title: 'User Login Successful.',
-        //             showClass: {
-        //                 popup: 'animate__animated animate__fadeInDown'
-        //             },
-        //             hideClass: {
-        //                 popup: 'animate__animated animate__fadeOutUp'
-        //             }
-        //         });
-        //         navigate(from, { replace: true });
-        //     })
+        signIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire({
+                    title: 'User Login Successful.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+                navigate(from, { replace: true });
+            })
     }
 
     // const handleValidateCaptcha = (e) => {
