@@ -10,6 +10,8 @@ import AdminHome from "../Dashboard/Admin/AdminHome";
 import UserManagement from '../Dashboard/Admin/UserManagement'
 import DonationRequest from '../Dashboard/Admin/DonationRequest'
 import ContentManagement from '../Dashboard/Admin/ContentManagement'
+import DonationRequestPosts from "../Pages/DonationRequestPosts";
+import Blogs from "../Pages/Blogs";
 
 
 
@@ -24,6 +26,14 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/donationRequestPosts',
+                element: <DonationRequestPosts></DonationRequestPosts>
+            },
+            {
+                path: '/blogs',
+                element: <Blogs></Blogs>
             },
             {
                 path: '/login',

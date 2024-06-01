@@ -26,8 +26,8 @@ const Navbar = () => {
 
     const navOptions = <>
         <li><Link to="/" style={isActive("/")}><button>Home</button></Link></li>
-        <li><Link to="/donationRequest" style={isActive("/donationRequest")}>Donation Requests</Link></li>
-        <li><Link to="/blog" style={isActive("/blog")}>blog</Link></li>
+        <li><Link to="/donationRequestPosts" style={isActive("/donationRequestPosts")}>Donation Requests</Link></li>
+        <li><Link to="/blogs" style={isActive("/blogs")}>Blogs</Link></li>
         {/* <li><Link to="/login" style={isActive("/login")}>Login</Link></li> */}
 {/* 
         {

@@ -1,9 +1,8 @@
-import React from 'react';
 
 const DonationRequestPosts = () => {
     return (
-        <div>
-            
+        <div className='pt-28'>
+            <h1>All donantion request posts will be here </h1>
         </div>
     );
 };
