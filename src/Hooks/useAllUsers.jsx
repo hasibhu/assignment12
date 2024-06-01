@@ -14,7 +14,7 @@ const useAllusers = () => {
             const { data } = await axiosPublic.get('/users');
             return data;
         }
-    })
+    });
 
 
 
