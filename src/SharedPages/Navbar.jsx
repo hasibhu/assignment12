@@ -27,6 +27,7 @@ const Navbar = () => {
         <li><Link to="/" style={isActive("/")}><button>Home</button></Link></li>
         <li><Link to="/donationRequest" style={isActive("/donationRequest")}>Donation Requests</Link></li>
         <li><Link to="/blog" style={isActive("/blog")}>blog</Link></li>
+        <li><Link to="/login" style={isActive("/login")}>Login</Link></li>
 {/* 
         {
             user && isAdmin && <li><Link to="/dashboard/adminHome" style={isActive("/secret")}>Secret</Link></li>
@@ -64,7 +65,8 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl text-white"><img className="w-28 h-28 rounded-full" src={logo} alt="" /></a>
+                    <a className="btn btn-ghost normal-case text-xl text-white"><img className="w-16 h-16
+                     rounded-full" src={logo} alt="" /></a>
                 </div>
 
                 <div className="navbar-center hidden lg:flex mr-52 text-white">

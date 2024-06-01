@@ -3,8 +3,9 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "./Root";
 import Home from "../SharedPages/Home";
 
-import Login from "../User/Login";
-import Register from "../User/Register";
+import Register from '../User/Register'
+import Login from '../User/Login'
+
 
 
 
@@ -20,13 +21,11 @@ export const router = createBrowserRouter([
                 path: '/',
                 element: <Home></Home>
             },
-            
-
-         
             {
                 path: '/login',
                 element: <Login></Login>
             },
+            
             {
                 path: '/signup',
                 element: <Register></Register>
