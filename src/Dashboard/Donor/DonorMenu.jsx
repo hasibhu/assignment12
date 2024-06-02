@@ -8,7 +8,8 @@ const DonorMenu = () => {
             <li><NavLink to='/dashboard/donorHome'><FaHome className="mr-2" />Donor Home</NavLink></li>
             <li><NavLink to='/dashboard/userManagement'><FaList /> User Management</NavLink></li>
             <li><NavLink to='/dashboard/manageDonationRequest'><FaList /> Manage Donation Request</NavLink></li>
-            <li><NavLink to='/dashboard/donationHistory'><FaUtensils /> Donation History</NavLink></li>
+            <li><NavLink to='/dashboard/createDonationRequest'><FaList /> Create Donation Request</NavLink></li>
+            <li><NavLink to='/dashboard/donorPaymentHistory'><FaUtensils /> Donation History</NavLink></li>
         </div>
     );
 };

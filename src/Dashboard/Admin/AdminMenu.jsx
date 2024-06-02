@@ -9,7 +9,7 @@ const AdminMenu = () => {
             <li><NavLink to='/dashboard/userManagement'><FaList /> User Management</NavLink></li>
             <li><NavLink to='/dashboard/donationRequest'><FaUtensils /> Donation Requests</NavLink></li>
             <li><NavLink to='/dashboard/contentManagement'><FaBook />Content Management</NavLink></li>
-            <li><NavLink to='/dashboard/users'><FaUsers /> Create Donation Request</NavLink></li>
+            <li><NavLink to='/dashboard/createDonationRequest'><FaUsers /> Create Donation Request</NavLink></li>
         </div>
     );
 };

@@ -11,7 +11,7 @@ const useAllusers = () => {
     const { data: users = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['location'],
         queryFn: async () => {
-            await new Promise(resolve => setTimeout(resolve, 2000));
+            await new Promise(resolve => setTimeout(resolve, 1000));
             const { data } = await axiosPublic.get('/users');
             return data;
         }

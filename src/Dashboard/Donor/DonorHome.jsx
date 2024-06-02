@@ -1,9 +1,15 @@
-import React from 'react';
+
+import UseAuth from '../../Hooks/UseAuth';
+import DonorDonationRequest from './DonorDonationRequest';
 
 const DonorHome = () => {
+    const { user } = UseAuth();
+
     return (
         <div>
-            <h1>Donor Home is loading </h1>
+            <h1 className='text-center text-3xl'>Welcome, {user?.displayName} </h1>
+
+            <DonorDonationRequest></DonorDonationRequest>
         </div>
     );
 };

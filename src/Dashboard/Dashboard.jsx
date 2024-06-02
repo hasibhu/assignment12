@@ -18,13 +18,14 @@ const Dashboard = () => {
 
     const { user } = UseAuth();
     const loggedInUserEmail = user?.email;
-    console.log(loggedInUserEmail);
+
+    
 
     const [users, loading, refetch] = useAllusers();
 
     const matchingUser = users?.find(user => user?.email === loggedInUserEmail);
     const userRole = matchingUser?.role;
-    console.log('matchin user role is : ', userRole);
+    // console.log('matching user role is : ', userRole);
     // const isAdmin = true;
 
  

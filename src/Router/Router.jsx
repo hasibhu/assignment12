@@ -13,6 +13,8 @@ import ContentManagement from '../Dashboard/Admin/ContentManagement'
 import DonationRequestPosts from "../Pages/DonationRequestPosts";
 import Blogs from "../Pages/Blogs";
 import DonorHome from "../Dashboard/Donor/DonorHome";
+import DonorPaymentHistory from "../Dashboard/Donor/DonorPaymentHistory";
+import CreateDonationRequest from "../Dashboard/CreateDonationRequest";
 
 
 
@@ -56,6 +58,14 @@ export const router = createBrowserRouter([
                 path: 'donorHome',
                 element: <DonorHome></DonorHome>
             },
+            {
+                path: 'createDonationRequest',
+                element: <CreateDonationRequest></CreateDonationRequest>
+            },
+            {
+                path: 'donorPaymentHistory',
+                element: <DonorPaymentHistory></DonorPaymentHistory>
+            },
    
     //         //admin routes
             {
@@ -75,6 +85,7 @@ export const router = createBrowserRouter([
                 path: 'contentManagement',
                 element: <ContentManagement></ContentManagement>
             },
+
     
             
         ]

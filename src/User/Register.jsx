@@ -20,13 +20,9 @@ const Register = () => {
     const axiosPublic = useAxiosPublic();
     const { createUser, updateUserProfile } = UseAuth();
 
-    // const locations = [
-    //     { district: 'Dhaka', upazilas: ['Dhamrai', 'Dohar', 'Keraniganj', 'Nawabganj', 'Savar'] },
-    //     { district: 'Faridpur', upazilas: ['Faridpur Sadar', 'Alfadanga', 'Bhanga', 'Boalmari', 'Charbhadrasan', 'Madhukhali', 'Nagarkanda', 'Sadarpur', 'Saltha'] },
-    //     // Add all the other districts and their respective upazilas here
-    // ];
+ 
 
-    const [locations] = useLocations();
+    const [locations, locationLoading] = useLocations();
     console.log(typeof locations);
 
 
@@ -178,7 +174,7 @@ const Register = () => {
                                 <span className="label-text">Image</span>
                             </label>
                             <input type="text" {...register("image", { required: true })} placeholder="Image Link" className="input input-bordered" />
-                            {errors.email && <span className='text-red-600'>This field is required</span>}
+                            {errors.image && <span className='text-red-600'>This field is required</span>}
                         </div>
 
                         
