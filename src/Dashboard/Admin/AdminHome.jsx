@@ -10,19 +10,22 @@ const AdminHome = () => {
 
 
             <div className='grid grid-cols-2 gap-4 m-6'>
-                <div className='border-2 border-blue-500 '>
+                <div className='border-2 border-blue-500 flex flex-col justify-center items-center '>
                     <h1>Total User </h1>
                     <h1>100</h1>
                 </div>
-                <div className='border-2 border-blue-500 '>
-                    <h1>Total User </h1>
+                <div className='border-2 border-blue-500 flex flex-col justify-center items-center '>
+                    <h1>Total Doner </h1>
                     <h1>100</h1>
                 </div>
-                <div className='border-2 border-blue-500 '>
-                    <h1>Total User </h1>
-                    <h1>100</h1>
-                </div>
+               
 
+            </div>
+            <div className='flex justify-center items-center '>
+                <div className='border-2 border-blue-500 flex flex-col justify-center items-center w-[560px]'>
+                    <h1>Total Blood Donation Done </h1>
+                    <h1>100</h1>
+                </div>
             </div>
         </div>
     );

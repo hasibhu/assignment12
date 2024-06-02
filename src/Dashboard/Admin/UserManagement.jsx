@@ -159,17 +159,44 @@ const UserManagement = () => {
 
 
     // make active/block button 
-    const handleMakeAdmin = async user => {
+    // const handleUserStatusChange = async (user) => {
+    //     const newStatus = user.status === 'active' ? 'block' : 'active';
+    //     try {
+    //         const { data } = await axiosPublic.patch(`/users/status/${user._id}`, { status: newStatus });
+
+    //         if (data.modifiedCount > 0) {
+    //             refetch(); // to update the data without useEffect!!!!
+
+    //             Swal.fire({
+    //                 title: "Status Changed!",
+    //                 text: `User status has been changed to ${newStatus}.`,
+    //                 icon: "success"
+    //             });
+    //         }
+    //     } catch (error) {
+    //         Swal.fire({
+    //             title: "Error!",
+    //             text: "Something went wrong. Please try again later.",
+    //             icon: "error"
+    //         });
+    //         console.error("Error changing the status:", error);
+    //     }
+    // };
+
+
+    const handleUserStatusChange = async (user) => {
+        const newStatus = user.status === 'active' ? 'block' : 'active';
         try {
-            const { data } = await axiosSecure.patch(`/users/admin/${user._id}`);
+            const { data } = await axiosPublic.patch(`/users/status/${user._id}`, { status: newStatus });
 
             if (data.modifiedCount > 0) {
-                refetch(); //to update the the data without useEffect!!!!
+                refetch(); // to update the data without useEffect!!!!
 
                 Swal.fire({
-                    title: "Role Changed!",
-                    text: "Your file has been updated.",
-                    icon: "success"
+                    title: "Status Changed!",
+                    text: `User status has been changed to ${newStatus}.`,
+                    icon: "success",
+                    timer: '1500'
                 });
             }
         } catch (error) {
@@ -178,9 +205,11 @@ const UserManagement = () => {
                 text: "Something went wrong. Please try again later.",
                 icon: "error"
             });
-            console.error("Error deleting the item:", error);
+            console.error("Error changing the status:", error);
         }
-    }
+    };
+
+
 
 
     return (
@@ -228,15 +257,36 @@ const UserManagement = () => {
                                         </td>
 
                                         <td>
-                                            {user.status === 'active' ? 'Active'
+                                            <button
+                                                onClick={() => handleUserStatusChange(user)}
+                                                className={`btn ${user.status === 'active' ? 'btn-accent' : 'btn-danger'}`}
+                                            >
+                                                {user.status === 'active' ? 'Active' : 'Blocked'}
+                                            </button>
+                                        </td>
+
+                                        {/* <td>
+                                            {user.status === 'block' ? 'Blocked' :
+                                                <button
+                                                    onClick={() => handleUserStatusChange(user)}
+                                                    className="btn btn-accent"
+                                                >
+                                                    <h1>Active</h1>
+                                                </button>
+                                            }
+                                        </td> */}
+
+                                        {/* <td>
+                                            {user.status === 'block' ? 'Blocked'
                                                 :
                                                 <button
-                                                    onClick={() => handleStatusChange(user)}
+                                                    onClick={() => handleUserStatusChange(user)}
                                                     className="btn btn-accent">
                                                     <h1>Active</h1>
                                                 </button>}
-                                        </td>
+                                        </td> */}
 
+                                        
                                         {/* <td>
                                             <button className='btn'>Active</button>
                                         </td> */}
