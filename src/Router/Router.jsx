@@ -12,6 +12,7 @@ import DonationRequest from '../Dashboard/Admin/DonationRequest'
 import ContentManagement from '../Dashboard/Admin/ContentManagement'
 import DonationRequestPosts from "../Pages/DonationRequestPosts";
 import Blogs from "../Pages/Blogs";
+import DonorHome from "../Dashboard/Donor/DonorHome";
 
 
 
@@ -51,22 +52,11 @@ export const router = createBrowserRouter([
         element: <Dashboard></Dashboard>,
         children: [
     //         //normal user route
-    //         {
-    //             path: 'userHome',
-    //             element: <UserHome></UserHome>
-    //         },
-    //         {
-    //             path: 'cart',
-    //             element: <Cart></Cart>
-    //         },
-    //         {
-    //             path: 'payment',
-    //             element: <Payment></Payment>
-    //         },
-    //         {
-    //             path: 'paymentHistory',
-    //             element: <PaymentHistory></PaymentHistory>
-    //         },
+            {
+                path: 'donorHome',
+                element: <DonorHome></DonorHome>
+            },
+   
     //         //admin routes
             {
                 path: 'adminHome',
@@ -78,22 +68,14 @@ export const router = createBrowserRouter([
                 element: <UserManagement></UserManagement>
             },
             {
-                path: 'donantionRequest',
+                path: 'donationRequest',
                 element: <DonationRequest></DonationRequest>
             },
             {
                 path: 'contentManagement',
                 element: <ContentManagement></ContentManagement>
             },
-    //         {
-    //             path: 'updateItem/:id',
-    //             element: <UpdateItem></UpdateItem>,
-    //             loader: ({ params }) => fetch(`http://localhost:3001/menu/${params.id}`)
-    //         },
-    //         {
-    //             path: 'manageBooking',
-    //             element: <AdminRoute><ManageBooking></ManageBooking></AdminRoute>
-    //         }
+    
             
         ]
     }

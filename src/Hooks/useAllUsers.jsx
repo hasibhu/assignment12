@@ -11,6 +11,7 @@ const useAllusers = () => {
     const { data: users = [], isLoading: loading, refetch } = useQuery({
         queryKey: ['location'],
         queryFn: async () => {
+            await new Promise(resolve => setTimeout(resolve, 2000));
             const { data } = await axiosPublic.get('/users');
             return data;
         }
@@ -18,7 +19,7 @@ const useAllusers = () => {
 
 
 
-    return [users, loading, refetch]
+    return [users, loading, refetch];
 }
 
 export default useAllusers;

@@ -2,10 +2,22 @@ import { Link, useLocation } from "react-router-dom";
 import { FcDonate } from "react-icons/fc";
 import logo from '../assets/images/logo.png';
 import UseAuth from "../Hooks/UseAuth";
+import useAllusers from "../Hooks/useAllUsers";
 
 const Navbar = () => {
     const { user, logOut } = UseAuth();
     const location = useLocation();
+
+ 
+
+
+    const [users, loading, refetch] = useAllusers();
+    const loggedInUserEmail = user?.email;
+    const matchingUser = users?.find(user => user?.email === loggedInUserEmail);
+    const userRole = matchingUser?.role;
+ 
+
+
 
     const isActive = (path) => {
         return location.pathname === path ? { color: 'red', } : {};
@@ -56,8 +68,28 @@ const Navbar = () => {
                                 <summary>
                                     <img className="w-10 h-10 rounded-full" src='https://i.ibb.co/LrsdP5F/daniel-lincoln-NR705be-N-CU-unsplash.jpg' alt="User Profile" />
                                 </summary>
-                                <ul className="p-2 bg-base-100 rounded-t-none text-black">
-                                    <li><Link to='/dashboard/adminHome'>Admin Home</Link></li>
+                                <ul className=" bg-base-100  text-black w-44">
+
+                                    {userRole === 'admin' && <li><Link to='/dashboard/adminHome'>Admin Home</Link></li>}
+
+                                    {userRole === 'donor' && <li><Link to='/dashboard/donorHome'>Donor Home</Link></li>}
+
+                                    {userRole === 'volunteer' && <li><Link to='/dashboard/volunteerHome'>Volunteer Home</Link></li>}
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    {/* }
+                                    {userRole === 'volunteer' && <VolunteerMenu />} */}
                                     <li><Link to='#'>Update Profile</Link></li>
                                     <li><a onClick={handleLogOut}>Log Out</a></li>
                                 </ul>
