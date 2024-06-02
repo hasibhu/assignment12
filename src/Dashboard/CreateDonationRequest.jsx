@@ -1,11 +1,12 @@
 import { Controller, useForm } from "react-hook-form";
 import useLocations from "../Hooks/useLocations";
 import UseAuth from "../Hooks/UseAuth";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import DatePicker from "react-datepicker";
-
+import SmoothScroll from '../SmoothScrooll/SmoothScroll'
 import "react-datepicker/dist/react-datepicker.css";
+import { sendSignInLinkToEmail } from "firebase/auth";
 
 const CreateDonationRequest = () => {
     const [locations, loading] = useLocations();
@@ -17,54 +18,66 @@ const CreateDonationRequest = () => {
     const [startDate, setStartDate] = useState(new Date()); // const date =  startDate.toLocaleDateString();
    
     // console.log(startDate.toLocaleDateString());
-
+   
     const onSubmit = (data) => {
         // console.log(data)
         const userInfo = {
-            name: data.name,
-            email: data.email,
+            requestorName: user?.displayName,
+            email: user?.email,
+            recipientName: data.recipientName,
             district: data.district,
             upazila: data.upazila,
             bloodGroup: data.bloodGroup,
-            image: data.image
+            image: data.image,
+            date: startDate.toLocaleDateString() ,
+            time: data.time,
+            address: data.fullAddress,
+            hospital: data.hospitalName,
+            requestMessage: data.requestMessage,
         };
-                        
-                        
+            console.log(userInfo);                          
           
     }
 
+
+    
     return (
-        <div>
-            <h1>Donation request form will be here </h1>
+        <div className="mb-10">
+           
             {/* onSubmit={handleSubmit(onSubmit)}  */}
-            <form className="card-body">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body w-[810px] border-4 border-blue-400 p-6 mx-auto">
+
+                <h1 className="text-4xl font-bold text-center pb-8 border-b-4 border-red-600">Create Your Donation Request Here </h1>
                 
                 {/* <DatePicker className="border" selected={startDate} onChange={(date) => setStartDate(date)} /> */}
-                <div className="form-control">
+                <div className="">
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text">Requestor Name</span>
                         </label>
-                        <input type="text" {...register("name", { required: true })} disabled  defaultValue={user?.displayName}  className="input input-bordered " />
+                        <input type="text" {...register("name")} disabled  defaultValue={user?.displayName}  className="input input-bordered " />
                         {errors.name && <span className='text-red-600'>This field is required</span>}
-                </div>
+                    </div>
                 
-                {/* email  */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Email</span>
-                    </label>
-                    <input type="email" {...register("email", { required: true })} disabled defaultValue={user?.email} className="input input-bordered" />
-                    {errors.email && <span className='text-red-600'>This field is required</span>}
+                    {/* email  */}
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Email</span>
+                        </label>
+                        <input type="email" {...register("email")} disabled defaultValue={user?.email} className="input input-bordered" />
+                        {errors.email && <span className='text-red-600'>This field is required</span>}
+                    </div>
                 </div>
 
-
-                <div className="form-control">
+                <div className="border-2 border-yellow-300 p-6">
+                    <h1 className="text-2xl  text-blue-600 text-center border-b border-lime-600 mb-5">Recipient Information</h1>
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text">Recipient Name</span>
                         </label>
-                    <input type="text" {...register("recipientName", { required: true })}   className="input input-bordered " />
-                    {errors.recipientName && <span className='text-red-600'>This field is required</span>}
-                </div>
+                        <input type="text" {...register("recipientName", { required: true })} className="input input-bordered " />
+                        {errors.recipientName && <span className='text-red-600'>This field is required</span>}
+                    </div>
 
                     {/* blood group  */}
 
@@ -85,7 +98,7 @@ const CreateDonationRequest = () => {
                         </select>
                         {errors.bloodGroup && <span className='text-red-600'>This field is required</span>}
                     </div>
-                
+
                     {/* Location selection */}
                     <div className="form-control">
                         <label className="label">
@@ -105,9 +118,9 @@ const CreateDonationRequest = () => {
 
                         {errors.district && <span className='text-red-600'>This field is required</span>}
                     </div>
-                
-                   {/* select upsazila part  */}
-                <div className="form-control">
+
+                    {/* select upsazila part  */}
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text">Upazila</span>
                         </label>
@@ -120,89 +133,95 @@ const CreateDonationRequest = () => {
                             ))}
                         </select>
                         {errors.upazila && <span className='text-red-600'>This field is required</span>}
-                </div>
-                
+                    </div>
+
 
                     {/* Hospital name  */}
-                <div className="form-control">
+                    <div className="form-control">
                         <label className="label">
                             <span className="label-text">Hospital Name</span>
                         </label>
-                    <input type="text" {...register("hospitalName", { required: true })} placeholder="Road Name" className="input input-bordered " />
-                    {errors.hospitalName && <span className='text-red-600'>This field is required</span>}
-                </div>
-                
+                        <input type="text" {...register("hospitalName", { required: true })} placeholder="like: Dhaka Medical College Hospital" className="input input-bordered " />
+                        {errors.hospitalName && <span className='text-red-600'>This field is required</span>}
+                    </div>
+
                     {/* full address  */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Full Address</span>
-                    </label>
-                    <input type="text" {...register("fullAddress", { required: true })} placeholder="Road Name" className="input input-bordered " />
-                    {errors.fullAddress && <span className='text-red-600'>This field is required</span>}
-                </div>
-                
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Full Address</span>
+                        </label>
+                        <input type="text" {...register("fullAddress", { required: true })} placeholder="like: Zahir Raihan Rd, Dhaka" className="input input-bordered " />
+                        {errors.fullAddress && <span className='text-red-600'>This field is required</span>}
+                    </div>
+
                     {/* donation date  */}
-                
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Date</span>
-                    </label>
 
-                    <Controller
-                        name="date"
-                        control={control}
-                        defaultValue={startDate} 
-                        rules={{ required: true }}
-                        render={({ field }) => (
-                            <DatePicker
-                                {...field}
-                                selected={field.value}
-                                onChange={(date) => field.onChange(date)}
-                                className="border text-center"
-                            />
-                        )}
-                    />
-                    {errors.date && <span className='text-red-600'>This field is required</span>}
-                </div>
-                
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Date</span>
+                        </label>
 
-                {/* Time  */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Time</span>
-                    </label>
-                    <input type="text" {...register("time", { required: true })} placeholder="Time, like 10am or 5pm" className="input input-bordered" />
-                    {errors.time && <span className='text-red-600'>This field is required</span>}
-                </div>
-                    
-                
-                {/* donation status  */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Donation Status</span>
-                    </label>
-                    <input type="text" {...register("status", { required: true })} defaultValue={'Pending'} disabled className="input input-bordered" />
-                    {errors.email && <span className='text-red-600'>This field is required</span>}
-                </div>
-                   
+                        <Controller
+                            name="date"
+                            control={control}
+                            defaultValue={startDate}
+                            rules={{ required: true }}
+                            render={({ field }) => (
+                                <DatePicker
+                                    {...field}
+                                    selected={field.value}
+                                    onChange={(date) => field.onChange(date)}
+                                    className="border text-center"
+                                />
+                            )}
+                        />
+                        {errors.date && <span className='text-red-600'>This field is required</span>}
+                    </div>
 
 
-                {/* photo */}
-                {/* <div>
+                    {/* Time  */}
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Time</span>
+                        </label>
+                        <input type="text" {...register("time", { required: true })} placeholder="Time, like 10am or 5pm" className="input input-bordered" />
+                        {errors.time && <span className='text-red-600'>This field is required</span>}
+                    </div>
+
+
+
+
+
+
+                    {/* photo */}
+                    {/* <div>
                             <input type="file"
                                 {...register("image", { required: true })}
                                 className="file-input w-full max-w-xs" />
                         </div> */}
-                <div className="form-control">
-                    <label className="label">
-                        <span className="label-text">Image</span>
-                    </label>
-                    <input type="text" {...register("image", { required: true })} placeholder="Image Link" className="input input-bordered" />
-                    {errors.image && <span className='text-red-600'>This field is required</span>}
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Image</span>
+                        </label>
+                        <input type="text" {...register("image", { required: true })} placeholder="Image Link" className="input input-bordered" />
+                        {errors.image && <span className='text-red-600'>This field is required</span>}
+                    </div>
+
+
+                    {/* request message  */}
+
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Request Message</span>
+                        </label>
+                        {/* <input type="text" {...register("requestMessage", { required: true })} placeholder="Image Link" className="input input-bordered" /> */}
+
+                        <textarea type="text" {...register("requestMessage", { required: true })} className="input input-bordered textarea " placeholder="Request Message"></textarea>
+                        {errors.requestMessage && <span className='text-red-600'>This field is required</span>}
+                    </div>
+
                 </div>
-
-
-                {/* Other form controls */}
+              
 
                 <div className="form-control mt-6">
                     <input className="btn btn-primary" type="submit" value="Create Request" />
@@ -212,7 +231,7 @@ const CreateDonationRequest = () => {
                         </div> */}
             </form>
 
-            
+            <SmoothScroll></SmoothScroll>
         </div>
     );
 };
