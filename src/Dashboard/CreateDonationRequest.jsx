@@ -6,37 +6,56 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import DatePicker from "react-datepicker";
 import SmoothScroll from '../SmoothScrooll/SmoothScroll'
 import "react-datepicker/dist/react-datepicker.css";
-import { sendSignInLinkToEmail } from "firebase/auth";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 const CreateDonationRequest = () => {
     const [locations, loading] = useLocations();
     const { register, handleSubmit, reset, formState: { errors }, control }  = useForm();
+    const [startDate, setStartDate] = useState(new Date()); // const date =  startDate.toLocaleDateString(); // console.log(startDate.toLocaleDateString());
     const [selectedDistrict, setSelectedDistrict] = useState('');
     const [selectedUpazila, setSelectedUpazila] = useState('');
     const axiosPublic = useAxiosPublic();
     const { user } = UseAuth();
-    const [startDate, setStartDate] = useState(new Date()); // const date =  startDate.toLocaleDateString();
+    const navigate = useNavigate();
+
    
-    // console.log(startDate.toLocaleDateString());
-   
-    const onSubmit = (data) => {
+    const onSubmit = async (formData) => {
         // console.log(data)
-        const userInfo = {
+        const requestInfo = {
             requestorName: user?.displayName,
             email: user?.email,
-            recipientName: data.recipientName,
-            district: data.district,
-            upazila: data.upazila,
-            bloodGroup: data.bloodGroup,
-            image: data.image,
+            recipientName: formData.recipientName,
+            district: formData.district,
+            upazila: formData.upazila,
+            bloodGroup: formData.bloodGroup,
+            image: formData.image,
             date: startDate.toLocaleDateString() ,
-            time: data.time,
-            address: data.fullAddress,
-            hospital: data.hospitalName,
-            requestMessage: data.requestMessage,
+            time: formData.time,
+            address: formData.fullAddress,
+            hospital: formData.hospitalName,
+            requestMessage: formData.requestMessage,
         };
-            console.log(userInfo);                          
-          
+        console.log(requestInfo);   
+        
+
+        const { data } = await axiosPublic.post('/donationRequests', requestInfo)
+        if (data.insertedId) {
+            console.log('User added to the database');
+            reset();
+            Swal.fire({
+                title: 'Data has been stored in DB Successful.',
+                showClass: {
+                    popup: 'animate__animated animate__fadeInDown'
+                },
+                hideClass: {
+                    popup: 'animate__animated animate__fadeOutUp'
+                }
+            });
+            navigate('/dashboard/donationRequest');
+
+        }
+             
     }
 
 
@@ -158,7 +177,7 @@ const CreateDonationRequest = () => {
 
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Date</span>
+                            <span className="label-text">Donation Date</span>
                         </label>
 
                         <Controller
@@ -171,7 +190,7 @@ const CreateDonationRequest = () => {
                                     {...field}
                                     selected={field.value}
                                     onChange={(date) => field.onChange(date)}
-                                    className="border text-center"
+                                    className="border text-center lg:w-full h-11 rounded-xl"
                                 />
                             )}
                         />
@@ -182,7 +201,7 @@ const CreateDonationRequest = () => {
                     {/* Time  */}
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Time</span>
+                            <span className="label-text">Donation Time</span>
                         </label>
                         <input type="text" {...register("time", { required: true })} placeholder="Time, like 10am or 5pm" className="input input-bordered" />
                         {errors.time && <span className='text-red-600'>This field is required</span>}
