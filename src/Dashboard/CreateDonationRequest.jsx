@@ -115,7 +115,7 @@ const CreateDonationRequest = () => {
         <div className="mb-10">
            
             {/* onSubmit={handleSubmit(onSubmit)}  */}
-            <form onSubmit={handleSubmit(onSubmit)} className="card-body w-[810px] border-4 border-blue-400 p-6 mx-auto">
+            <form onSubmit={handleSubmit(onSubmit)} className="card-body ml-2 rounded-xl border-4 border-blue-400 p-6 mx-auto">
 
                 <h1 className="text-4xl font-bold text-center pb-8 border-b-4 border-red-600">Create Your Donation Request Here </h1>
                 

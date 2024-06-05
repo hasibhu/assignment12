@@ -1,5 +1,5 @@
-import ImageHosting from "./ImageHosting";
-import Location from "./Location";
+import HeroPart from "./HeroPart";
+
 
 
 const Home = () => {
@@ -8,7 +8,7 @@ const Home = () => {
             I will load al 
 
 
-            <Location></Location>
+            <HeroPart></HeroPart>
 
           
         </div>

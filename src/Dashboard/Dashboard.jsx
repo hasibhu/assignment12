@@ -30,7 +30,7 @@ const Dashboard = () => {
 
  
     return (
-        <div className="flex mt-8 border-t-4 border-yellow-500 rounded-xl pt-3">
+        <div className="flex mt-8 border-t-4 border-yellow-500 rounded-xl pt-3 mx-auto">
             <div className="w-64 min-h-full bg-orange-400">
                 <ul className="menu p-7">
                     {loading ? (
