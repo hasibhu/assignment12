@@ -11,10 +11,11 @@ import UserManagement from '../Dashboard/Admin/UserManagement'
 import DonationRequest from '../Dashboard/Admin/DonationRequest'
 import ContentManagement from '../Dashboard/Admin/ContentManagement'
 import DonationRequestPosts from "../Pages/DonationRequestPosts";
-import Blogs from "../Pages/Blogs";
+import Blogs from "../Pages/Blogs/Blogs";
 import DonorHome from "../Dashboard/Donor/DonorHome";
 import DonorPaymentHistory from "../Dashboard/Donor/DonorPaymentHistory";
 import CreateDonationRequest from "../Dashboard/CreateDonationRequest";
+import PostYourBlog from "../Pages/Blogs/PostYourBlog";
 
 
 
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/postBlog',
+                element: <PostYourBlog></PostYourBlog>
             },
             {
                 path: '/login',

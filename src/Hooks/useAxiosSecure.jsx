@@ -2,8 +2,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import UseAuth from "./UseAuth";
 
-
-
 const asxioSecure = axios.create({
     baseURL: 'http://localhost:3001'
 });
@@ -21,7 +19,7 @@ const useAxiosSecure = () => {
     asxioSecure.interceptors.request.use(function (config) {
         const token = localStorage.getItem('access-token');
         // console.log(token);
-        // console.log('Request stopped by the interceptor.');
+        console.log('Request stopped by the interceptor', token);
         if (token) {
             config.headers.authorization = `Bearer ${token}`;
         }
@@ -30,10 +28,8 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
     })
 
-
     asxioSecure.interceptors.response.use(function (response) {
         return response;
-
     }, async (error) => {
         // const status = error.response.status;
         const status = error.response ? error.response.status : null;

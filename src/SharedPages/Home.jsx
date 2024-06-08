@@ -1,4 +1,6 @@
+import DonorStatistics from "./DonorStatistics";
 import HeroPart from "./HeroPart";
+import Steps from "./Steps";
 
 
 
@@ -9,6 +11,8 @@ const Home = () => {
 
 
             <HeroPart></HeroPart>
+            <DonorStatistics></DonorStatistics>
+            <Steps></Steps>
 
           
         </div>

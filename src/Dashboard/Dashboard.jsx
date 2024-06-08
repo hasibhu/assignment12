@@ -18,19 +18,18 @@ const Dashboard = () => {
 
     const { user } = UseAuth();
     const loggedInUserEmail = user?.email;
-
-    
+    console.log(loggedInUserEmail);
 
     const [users, loading, refetch] = useAllusers();
 
     const matchingUser = users?.find(user => user?.email === loggedInUserEmail);
     const userRole = matchingUser?.role;
-    // console.log('matching user role is : ', userRole);
+    console.log('matchin user role is : ', userRole);
     // const isAdmin = true;
 
  
     return (
-        <div className="flex mt-8 border-t-4 border-yellow-500 rounded-xl pt-3 mx-auto">
+        <div className="flex mt-8 border-t-4 border-yellow-500 rounded-xl pt-3">
             <div className="w-64 min-h-full bg-orange-400">
                 <ul className="menu p-7">
                     {loading ? (
