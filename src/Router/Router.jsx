@@ -16,6 +16,9 @@ import DonorHome from "../Dashboard/Donor/DonorHome";
 import DonorPaymentHistory from "../Dashboard/Donor/DonorPaymentHistory";
 import CreateDonationRequest from "../Dashboard/CreateDonationRequest";
 import PostYourBlog from "../Pages/Blogs/PostYourBlog";
+import UpdateProfile from "../User/UpdateProfile";
+import PaymentDonor from "../Dashboard/Donor/PaymentDonor";
+import PaymentAdmin from "../Dashboard/Admin/PaymentAdmin";
 
 
 
@@ -51,6 +54,10 @@ export const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <Register></Register>
+            },
+            {
+                path: '/updateProfile',
+                element: <UpdateProfile></UpdateProfile>
             }
         ]
     },
@@ -66,6 +73,10 @@ export const router = createBrowserRouter([
             {
                 path: 'createDonationRequest',
                 element: <CreateDonationRequest></CreateDonationRequest>
+            },
+            {
+                path: 'donorPayment',
+                element: <PaymentDonor></PaymentDonor>
             },
             {
                 path: 'donorPaymentHistory',
@@ -90,6 +101,11 @@ export const router = createBrowserRouter([
                 path: 'contentManagement',
                 element: <ContentManagement></ContentManagement>
             },
+            {
+                path: 'adminPayment',
+                element: <PaymentAdmin></PaymentAdmin>
+            },
+           
 
     
             

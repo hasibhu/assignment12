@@ -78,19 +78,9 @@ const Navbar = () => {
 
 
 
-
-
-
-
-
-
-
-
-
-
                                     {/* }
                                     {userRole === 'volunteer' && <VolunteerMenu />} */}
-                                    <li><Link to='#'>Update Profile</Link></li>
+                                    <li><Link to='/updateProfile'>Update Profile</Link></li>
                                     <li><a onClick={handleLogOut}>Log Out</a></li>
                                 </ul>
                             </details>
