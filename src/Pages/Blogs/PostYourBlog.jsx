@@ -44,7 +44,7 @@ const PostYourBlog = () => {
 
 
             const requestInfo = {
-                requestorName: user?.displayName,
+                name: user?.displayName,
                 email: user?.email,
                 district: formData.district,
                 upazila: formData.upazila,

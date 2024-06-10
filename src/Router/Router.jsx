@@ -20,6 +20,7 @@ import UpdateProfile from "../User/UpdateProfile";
 import PaymentDonor from "../Dashboard/Donor/PaymentDonor";
 import PaymentAdmin from "../Dashboard/Admin/PaymentAdmin";
 import DonationRequestDetails from "../Pages/AllDonationRequest/DonationRequestDetails";
+import VolunteerHome from "../Dashboard/Volunteer/VolunteerHome";
 
 
 
@@ -71,7 +72,7 @@ export const router = createBrowserRouter([
         path: 'dashboard',
         element: <Dashboard></Dashboard>,
         children: [
-    //         //normal user route
+    //         //donor user route
             {
                 path: 'donorHome',
                 element: <DonorHome></DonorHome>
@@ -112,6 +113,17 @@ export const router = createBrowserRouter([
                 element: <PaymentAdmin></PaymentAdmin>
             },
            
+            // Vlunteer routes
+            {
+                path: 'VolunteerHome',
+                element: <VolunteerHome></VolunteerHome>
+
+            },
+            {
+                path: 'createDonationRequestByVolunteer',
+                element: <CreateDonationRequest></CreateDonationRequest>
+
+            },
 
     
             

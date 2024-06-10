@@ -8,14 +8,19 @@ const Navbar = () => {
     const { user, logOut } = UseAuth();
     const location = useLocation();
 
- 
-
-
     const [users, loading, refetch] = useAllusers();
+    
     const loggedInUserEmail = user?.email;
-    const matchingUser = users?.find(user => user?.email === loggedInUserEmail);
+
+    
+    
+    
+    const matchingUser = users?.find(databaseUser => databaseUser?.email === loggedInUserEmail);
+    
+    
+    console.log(loggedInUserEmail, users,  matchingUser );
+    
     const userRole = matchingUser?.role;
- 
 
 
 
@@ -88,14 +93,17 @@ const Navbar = () => {
                     </ul>
                 )}
                 <a className="flex flex-row justify-center items-center bg-red-600 w-16 rounded-xl">
-                    <Link to='dashboard/adminPayment' >
-                        <FcDonate title="Donate Now" className="text-3xl " />
-                    </Link>
-                   
-                </a>
+    <Link to='dashboard/adminPayment' className="flex items-center justify-center">
+        <FcDonate title="Donate Now" className="text-3xl" />
+    </Link>
+</a>
+
             </div>
         </div>
     );
 };
 
 export default Navbar;
+
+
+

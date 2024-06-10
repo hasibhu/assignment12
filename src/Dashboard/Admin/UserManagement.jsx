@@ -33,30 +33,7 @@ const UserManagement = () => {
     };
 
 
-    // make active/block button 
-    // const handleUserStatusChange = async (user) => {
-    //     const newStatus = user.status === 'active' ? 'block' : 'active';
-    //     try {
-    //         const { data } = await axiosPublic.patch(`/users/status/${user._id}`, { status: newStatus });
-
-    //         if (data.modifiedCount > 0) {
-    //             refetch(); // to update the data without useEffect!!!!
-
-    //             Swal.fire({
-    //                 title: "Status Changed!",
-    //                 text: `User status has been changed to ${newStatus}.`,
-    //                 icon: "success"
-    //             });
-    //         }
-    //     } catch (error) {
-    //         Swal.fire({
-    //             title: "Error!",
-    //             text: "Something went wrong. Please try again later.",
-    //             icon: "error"
-    //         });
-    //         console.error("Error changing the status:", error);
-    //     }
-    // };
+ 
 
     const handleUserStatusChange = async (user) => {
         const newStatus = user.status === 'active' ? 'block' : 'active';

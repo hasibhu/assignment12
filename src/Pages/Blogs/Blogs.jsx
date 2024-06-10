@@ -3,16 +3,9 @@ import { Link } from "react-router-dom";
 import BlogPosts from "./BlogPosts";
 import UseAuth from "../../Hooks/UseAuth";
 
-
-
-
-
-
 const Blogs = () => {
     
- const {user} = UseAuth()
-
-
+    const { user } = UseAuth();
 
     return (
         <div>
@@ -20,8 +13,6 @@ const Blogs = () => {
             <div>
                 <BlogPosts></BlogPosts>
             </div>
-
-
 
 
             <div className="divider"></div>

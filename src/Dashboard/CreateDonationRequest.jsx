@@ -56,6 +56,7 @@ const CreateDonationRequest = () => {
                 address: formData.fullAddress,
                 hospital: formData.hospitalName,
                 requestMessage: formData.requestMessage,
+                status: 'pending'
             };
 
 

@@ -4,10 +4,11 @@ import UseAuth from "../../Hooks/UseAuth";
 import useAllusers from "../../Hooks/useAllUsers";
 
 const AllDonationRequestCard = ({ data, searchQuery }) => {
-    const { user } = UseAuth();
-    const [users, loading, refetch] = useAllusers();
-    const loggedInUserEmail = user.email;
-    const currentUser = users.find(user => user.email === loggedInUserEmail);
+    // console.log(data);
+    // const { user } = UseAuth();
+    // const [users, loading, refetch] = useAllusers();
+    // const loggedInUserEmail = user.email;
+    // const currentUser = users.find(user => user.email === loggedInUserEmail);
 
     const highlightText = (text, highlight) => {
         const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
@@ -23,7 +24,7 @@ const AllDonationRequestCard = ({ data, searchQuery }) => {
     return (
       
             <div className="text-center border border-red-400 rounded-xl p-4">
-                <h1>Requested By: {currentUser.role}</h1>
+            <h1>Requested By: {data.requestorName}</h1>
                 <img className="w-32 h-32 mx-auto" src={data.image} alt="" />
 
                 <h2>Date: {highlightText(data.date, searchQuery)}</h2>
