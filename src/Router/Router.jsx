@@ -21,6 +21,12 @@ import PaymentDonor from "../Dashboard/Donor/PaymentDonor";
 import PaymentAdmin from "../Dashboard/Admin/PaymentAdmin";
 import DonationRequestDetails from "../Pages/AllDonationRequest/DonationRequestDetails";
 import VolunteerHome from "../Dashboard/Volunteer/VolunteerHome";
+import AllPaymentHistory from "../Dashboard/Admin/AllPaymentHistory";
+import AdminPaymenHistory from "../Dashboard/Admin/AdminPaymenHistory";
+import Payment from "../Dashboard/Payment/Payment";
+import PrivateRoute from "./PrivateRoute";
+import PrivateAdminRoute from "./PrivateAdminRoute";
+import PrivateVolunteerRoute from "./PrivateVolunteerRoute";
 
 
 
@@ -72,6 +78,11 @@ export const router = createBrowserRouter([
         path: 'dashboard',
         element: <Dashboard></Dashboard>,
         children: [
+            {
+                path: 'payment',
+                element: <PrivateRoute><Payment></Payment></PrivateRoute>
+
+            },
     //         //donor user route
             {
                 path: 'donorHome',
@@ -83,7 +94,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'donorPayment',
-                element: <PaymentDonor></PaymentDonor>
+                element: <PrivateRoute><PaymentDonor></PaymentDonor></PrivateRoute>
             },
             {
                 path: 'donorPaymentHistory',
@@ -110,19 +121,31 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'adminPayment',
-                element: <PaymentAdmin></PaymentAdmin>
+                element: <PrivateAdminRoute><Payment></Payment></PrivateAdminRoute>
+            },
+            {
+                path: 'adminPaymentHistory',
+                element: <AdminPaymenHistory></AdminPaymenHistory>
+            },
+            {
+                path: 'allPaymentHistory',
+                element: <AllPaymentHistory></AllPaymentHistory>
             },
            
             // Vlunteer routes
             {
                 path: 'VolunteerHome',
-                element: <VolunteerHome></VolunteerHome>
+                element: <PrivateVolunteerRoute><VolunteerHome></VolunteerHome></PrivateVolunteerRoute>
 
             },
             {
                 path: 'createDonationRequestByVolunteer',
                 element: <CreateDonationRequest></CreateDonationRequest>
 
+            },
+            {
+                path: 'volunteerPayment',
+                element: <PrivateVolunteerRoute><Payment></Payment></PrivateVolunteerRoute>
             },
 
     

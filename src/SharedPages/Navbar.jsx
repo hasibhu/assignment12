@@ -9,23 +9,17 @@ const Navbar = () => {
     const location = useLocation();
 
     const [users, loading, refetch] = useAllusers();
-    
+
     const loggedInUserEmail = user?.email;
 
-    
-    
-    
     const matchingUser = users?.find(databaseUser => databaseUser?.email === loggedInUserEmail);
-    
-    
-    console.log(loggedInUserEmail, users,  matchingUser );
-    
+
+    console.log(loggedInUserEmail, users, matchingUser);
+
     const userRole = matchingUser?.role;
 
-
-
     const isActive = (path) => {
-        return location.pathname === path ? { color: 'red', } : {};
+        return location.pathname === path ? { color: 'red' } : {};
     };
 
     const handleLogOut = () => {
@@ -42,6 +36,32 @@ const Navbar = () => {
             </li>
         </>
     );
+
+    const getDashboardPath = () => {
+        switch (userRole) {
+            case 'admin':
+                return '/dashboard/adminHome';
+            case 'donor':
+                return '/dashboard/donorHome';
+            case 'volunteer':
+                return '/dashboard/volunteerHome';
+            default:
+                return '/dashboard';
+        }
+    };
+
+    const getPaymentPath = () => {
+        switch (userRole) {
+            case 'admin':
+                return '/dashboard/adminPayment';
+            case 'donor':
+                return '/dashboard/donorPayment';
+            case 'volunteer':
+                return '/dashboard/volunteerPayment';
+            default:
+                return '/dashboard/payment';
+        }
+    };
 
     return (
         <div className="navbar fixed z-10 bg-opacity-30 max-w-screen-xl bg-black">
@@ -73,18 +93,10 @@ const Navbar = () => {
                                 <summary>
                                     <img className="w-10 h-10 rounded-full" src='https://i.ibb.co/LrsdP5F/daniel-lincoln-NR705be-N-CU-unsplash.jpg' alt="User Profile" />
                                 </summary>
-                                <ul className=" bg-base-100  text-black w-44">
-
-                                    {userRole === 'admin' && <li><Link to='/dashboard/adminHome'>Admin Home</Link></li>}
-
-                                    {userRole === 'donor' && <li><Link to='/dashboard/donorHome'>Donor Home</Link></li>}
-
-                                    {userRole === 'volunteer' && <li><Link to='/dashboard/volunteerHome'>Volunteer Home</Link></li>}
-
-
-
-                                    {/* }
-                                    {userRole === 'volunteer' && <VolunteerMenu />} */}
+                                <ul className="bg-base-100 text-black w-44">
+                                    {userRole === 'admin' && <li><Link to={getDashboardPath()}>Admin Home</Link></li>}
+                                    {userRole === 'donor' && <li><Link to={getDashboardPath()}>Donor Home</Link></li>}
+                                    {userRole === 'volunteer' && <li><Link to={getDashboardPath()}>Volunteer Home</Link></li>}
                                     <li><Link to='/updateProfile'>Update Profile</Link></li>
                                     <li><a onClick={handleLogOut}>Log Out</a></li>
                                 </ul>
@@ -93,17 +105,13 @@ const Navbar = () => {
                     </ul>
                 )}
                 <a className="flex flex-row justify-center items-center bg-red-600 w-16 rounded-xl">
-    <Link to='dashboard/adminPayment' className="flex items-center justify-center">
-        <FcDonate title="Donate Now" className="text-3xl" />
-    </Link>
-</a>
-
+                    <Link to={getPaymentPath()} className="flex items-center justify-center">
+                        <FcDonate title="Donate Now" className="text-3xl" />
+                    </Link>
+                </a>
             </div>
         </div>
     );
 };
 
 export default Navbar;
-
-
-

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBook, FaHome, FaList, FaUsers, FaUtensils } from 'react-icons/fa';
+import { FaBook, FaHistory, FaHome, FaList, FaUsers, FaUtensils } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 
 const AdminMenu = () => {
@@ -11,7 +11,8 @@ const AdminMenu = () => {
             <li><NavLink to='/dashboard/contentManagement'><FaBook />Content Management</NavLink></li>
             <li><NavLink to='/dashboard/createDonationRequest'><FaUsers /> Create Donation Request</NavLink></li>
             <li><NavLink to='/dashboard/adminPayment'><FaUsers /> Pay</NavLink></li>
-            <li><NavLink to='/dashboard/allPayment'><FaUsers /> All Payment History</NavLink></li>
+            <li><NavLink to='/dashboard/adminPaymentHistory'><FaHistory /> Admin Payment History</NavLink></li>
+            <li><NavLink to='/dashboard/allPaymentHistory'><FaUsers /> All Payment History</NavLink></li>
            
         </div>
     );
