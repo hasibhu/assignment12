@@ -87,9 +87,11 @@ const Navbar = () => {
                         </li>
                     </ul>
                 )}
-                <a className="flex flex-row justify-center items-center bg-slate-400 w-32">
-                    <FcDonate className="text-3xl" />
-                    <div className="badge badge-secondary">0</div>
+                <a className="flex flex-row justify-center items-center bg-red-600 w-16 rounded-xl">
+                    <Link to='dashboard/adminPayment' >
+                        <FcDonate title="Donate Now" className="text-3xl " />
+                    </Link>
+                   
                 </a>
             </div>
         </div>

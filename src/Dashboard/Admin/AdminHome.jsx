@@ -1,6 +1,7 @@
 
 import UseAuth from '../../Hooks/UseAuth';
 import DonorDonationRequest from '../Donor/DonorDonationRequest';
+import AdminDonationRequest from './AdminDonationRequest';
 
 const AdminHome = () => {
     const { user } = UseAuth();
@@ -30,7 +31,7 @@ const AdminHome = () => {
             </div>
 
 
-            <DonorDonationRequest></DonorDonationRequest>
+            <AdminDonationRequest></AdminDonationRequest>
         </div>
     );
 };

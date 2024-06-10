@@ -10,7 +10,7 @@ import AdminHome from "../Dashboard/Admin/AdminHome";
 import UserManagement from '../Dashboard/Admin/UserManagement'
 import DonationRequest from '../Dashboard/Admin/DonationRequest'
 import ContentManagement from '../Dashboard/Admin/ContentManagement'
-import DonationRequestPosts from "../Pages/DonationRequestPosts";
+import DonationRequestPosts from "../Pages/AllDonationRequest/DonationRequestPosts";
 import Blogs from "../Pages/Blogs/Blogs";
 import DonorHome from "../Dashboard/Donor/DonorHome";
 import DonorPaymentHistory from "../Dashboard/Donor/DonorPaymentHistory";
@@ -19,6 +19,7 @@ import PostYourBlog from "../Pages/Blogs/PostYourBlog";
 import UpdateProfile from "../User/UpdateProfile";
 import PaymentDonor from "../Dashboard/Donor/PaymentDonor";
 import PaymentAdmin from "../Dashboard/Admin/PaymentAdmin";
+import DonationRequestDetails from "../Pages/AllDonationRequest/DonationRequestDetails";
 
 
 
@@ -38,6 +39,11 @@ export const router = createBrowserRouter([
                 path: '/donationRequestPosts',
                 element: <DonationRequestPosts></DonationRequestPosts>
             },
+            {
+                path: '/donationPosts/:id',
+                element: <DonationRequestDetails></DonationRequestDetails>,
+                loader: ({ params }) => fetch(`http://localhost:3004/donationRequests/${params.id}`)
+            }, 
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>

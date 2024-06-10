@@ -1,3 +1,4 @@
+import SmoothScroll from "../SmoothScrooll/SmoothScroll";
 import Accordian from "./Accordian";
 import DonorStatistics from "./DonorStatistics";
 import HeroPart from "./HeroPart";
@@ -13,10 +14,10 @@ const Home = () => {
 
             <HeroPart></HeroPart>
             <DonorStatistics></DonorStatistics>
-            <Steps></Steps>
+            {/* <Steps></Steps> */}
             <Accordian></Accordian>
 
-          
+          <SmoothScroll></SmoothScroll>
         </div>
     );
 };
