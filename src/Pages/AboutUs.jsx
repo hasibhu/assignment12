@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import  { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import UseAuth from '../Hooks/UseAuth';
@@ -24,28 +24,6 @@ const AboutUs = () => {
             <div className="container mx-auto px-4">
                 <h1 className="text-4xl font-bold mb-8 text-center bg-blue-500 h-16 rounded-xl" data-aos="fade-up">About Us</h1>
 
-                {/* <div className="mb-12" data-aos="fade-left">
-                    <h2 className="text-3xl font-semibold mb-4 text-center">Our Mission</h2>
-                    <img src={ image1} alt="" />
-                    <p className="text-lg leading-relaxed">
-                        Our mission at [Blood Donation Club Name] is to save lives by connecting generous blood donors with those in need. We strive to create a community where every individual has the opportunity to contribute to the health and well-being of others through blood donation.
-                    </p>
-                </div> */}
-                {/* <div className="container mx-auto px-4">
-                    <div className="mb-12 relative" data-aos="fade-left">
-                        <h2 className="text-3xl font-semibold mb-4 text-center">Our Mission</h2>
-                        <div className="image-container w-full relative overflow-hidden rounded-lg">
-                            <img src={image1} alt="Mission" className="w-1/2  mx-auto h-auto rounded-lg" />
-                            <div className="gradient-mask absolute top-0 left-0 w-1/2 h-full" style={{ background: 'linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))' }}></div>
-                        </div>
-                        <div className="p-4">
-                            <p className="text-lg leading-relaxed">
-                                Our mission at [Blood Donation Club Name] is to save lives by connecting generous blood donors with those in need. We strive to create a community where every individual has the opportunity to contribute to the health and well-being of others through blood donation.
-                            </p>
-                        </div>
-                    </div>
-                </div> */}
-                {/* done part */}
                 <div className="container mx-auto px-4">
                     <div className="mb-12 relative" data-aos="fade-left">
                         <h2 className="text-3xl font-semibold mb-4 text-center">Our Mission</h2>
@@ -61,8 +39,6 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-
-                {/* done part  */}
                 <div className="container mx-auto px-4">
                     <div className="mb-12 relative" data-aos="fade-right">
                         <h2 className="text-3xl font-semibold mb-4 text-center">Our Vision</h2>
@@ -78,8 +54,6 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-               
-                {/* done  */}
                 <div className="container mx-auto px-4">
                     <div className="mb-12 relative" data-aos="fade-right">
                         <h2 className="text-3xl font-semibold mb-4 text-center">Our History</h2>
@@ -94,11 +68,6 @@ const AboutUs = () => {
                         </div>
                     </div>
                 </div>
-
-               
-                
-
-                {/* done  */}
 
                 <div className="container mx-auto px-4">
                     <div className="mb-12 relative" data-aos="fade-left">
@@ -122,9 +91,6 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-
-
-
                 <div className="container mx-auto px-4">
                     <div className="mb-12 relative" data-aos="fade-left">
                         <h2 className="text-3xl font-semibold mb-4 text-center">Get Involved</h2>
@@ -147,14 +113,8 @@ const AboutUs = () => {
                     </div>
                 </div>
 
-                
-
-
                 <div className="mb-12" data-aos="fade-up">
-                    {/* <h2 className="text-3xl font-semibold mb-4 text-center">Meet Our Team</h2>
-                    <p className="text-lg leading-relaxed mb-4">
-                        Our team is comprised of passionate individuals dedicated to making a difference. From our volunteer coordinators to our healthcare partners, every member of [Blood Donation Club Name] plays a vital role in our mission to save lives.
-                    </p> */}
+                   
                     <div className="container mx-auto px-4">
                         <div className="mb-12 relative" data-aos="fade-right">
                             <h2 className="text-3xl font-semibold mb-4 text-center">Meet Our Team</h2>
