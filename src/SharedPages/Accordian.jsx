@@ -4,23 +4,23 @@ import accordianPhoto from '../assets/accordianPhoto.png'
 
 const Accordian = () => {
     return (
-        <div className='mt-16'>
+        <div className='mt-16 border-t-4 border-yellow-500 rounded-xl shadow-xl pb-8'>
             
             <h1 className='text-center text-3xl font-bold p-10'>Frequently Asked Questions About Blood Donation</h1>
 
-            <div className='lg:flex'>
+            <div className='lg:flex items-center justify-center mx-auto gap-10'>
                 <div className='w-1/3'>
-                    <img src={accordianPhoto} alt="" />
+                    <img className='h-[490px]' src={accordianPhoto} alt="" />
                 </div>
 
-                <div className='w-3/4'>
+                <div className='w-2/4'>
                     <div className="collapse collapse-arrow bg-base-200">
                         <input type="radio" name="my-accordion-2" defaultChecked />
                         <div className="collapse-title text-xl font-medium">
                             Who can donate blood?
                         </div>
                         <div className="collapse-content">
-                            <p>Most healthy adults can donate blood. Generally, donors must be at least 17 years old (or 16 with parental consent in some areas), weigh at least 110 pounds, and be in good health. Specific eligibility criteria may vary based on the type of donation and local regulations. Donors are screened for health conditions and risk factors that could affect the safety of the blood supply. This includes recent travel to certain countries, medication use, and overall health status. It’s important for potential donors to provide accurate information to ensure their blood is safe for transfusion.</p>
+                            <p>Most healthy adults can donate blood. Generally, donors must be at least 17 years old (or 16 with parental consent in some areas), weigh at least 110 pounds, and be in good health.</p>
                         </div>
                     </div>
 
@@ -71,6 +71,16 @@ const Accordian = () => {
                         <div className="collapse-content">
                             <p>
                                 After donating blood, it’s important to take care of yourself to help your body recover. Drink plenty of fluids, such as water or juice, to stay hydrated. Avoid strenuous physical activities for the rest of the day. Eat a healthy meal to restore your energy levels. If you feel lightheaded or dizzy, sit or lie down until you feel better. Keep the bandage on your arm for a few hours and avoid heavy lifting with that arm. If you experience any unusual symptoms or prolonged discomfort, contact the blood donation center for advice.</p>
+                        </div>
+                    </div>
+                    <div className="collapse collapse-arrow bg-base-200">
+                        <input type="radio" name="my-accordion-2" />
+                        <div className="collapse-title text-xl font-medium">
+                            Is there any special criteria for donating blood?
+                        </div>
+                        <div className="collapse-content">
+                            <p>
+                                Specific eligibility criteria may vary based on the type of donation and local regulations. Donors are screened for health conditions and risk factors that could affect the safety of the blood supply. This includes recent travel to certain countries, medication use, and overall health status. It’s important for potential donors to provide accurate information to ensure their blood is safe for transfusion.</p>
                         </div>
                     </div>
                 </div>

@@ -29,6 +29,9 @@ import PrivateAdminRoute from "./PrivateAdminRoute";
 import PrivateVolunteerRoute from "./PrivateVolunteerRoute";
 import VolunteerPaymentHistory from "../Dashboard/Volunteer/VolunteerPaymentHistory";
 import AboutUs from "../Pages/AboutUs";
+import BecomeADonor from "../SharedPages/HeropartComponent/BecomeADonor";
+import BenefitsOfBloodDonation from "../SharedPages/HeropartComponent/BenefitsOfBloodDonation";
+import HowYourDonationHelps from "../SharedPages/HeropartComponent/HowYourDonationHelps";
 
 
 
@@ -77,6 +80,18 @@ export const router = createBrowserRouter([
             {
                 path: '/updateProfile',
                 element: <UpdateProfile></UpdateProfile>
+            },
+            {
+                path:"/become-a-donor",
+                element:< BecomeADonor />
+            },
+            {
+                path:"/benefits-of-blood-donation",
+                element: <BenefitsOfBloodDonation />
+            },
+            {
+                path:  "/how-your-donation-helps",
+                element: <HowYourDonationHelps />
             }
         ]
     },

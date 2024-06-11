@@ -11,7 +11,7 @@ const BloodDonationScamAlert = () => {
                 </div>
 
 
-                <div className="p-6 bg-red-100 text-red-900 rounded-lg shadow-lg max-w-2xl mx-auto mt-6">
+                <div className="p-6 bg-slate-300 text-red-900 rounded-lg shadow-lg max-w-2xl mx-auto mt-6">
                     <h2 className="text-2xl text-center font-bold mb-4">Beware of Financial Scams Related to Blood Donation</h2>
                     <p className="mb-2">
                         Blood donation is a noble cause, but unfortunately, scammers often take advantage of people's goodwill. Here are some common scams and tips to protect yourself:
