@@ -13,8 +13,7 @@ import TestimonialsAndStories from "./TestimonialsAndStories";
 const Home = () => {
     return (
         <div className="pt-28">
-            I will load al 
-
+           
 
             <HeroPart></HeroPart>
             <DonorStatistics></DonorStatistics>
