@@ -4,7 +4,7 @@ import accordianPhoto from '../assets/accordianPhoto.png'
 
 const Accordian = () => {
     return (
-        <div>
+        <div className='mt-16'>
             
             <h1 className='text-center text-3xl font-bold p-10'>Frequently Asked Questions About Blood Donation</h1>
 

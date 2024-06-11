@@ -31,6 +31,7 @@ const Navbar = () => {
             <li><Link to="/" style={isActive("/")}>Home</Link></li>
             <li><Link to="/donationRequestPosts" style={isActive("/donationRequestPosts")}>Donation Requests</Link></li>
             <li><Link to="/blogs" style={isActive("/blogs")}>Blogs</Link></li>
+            <li><Link to="/aboutUs" style={isActive("/aboutUs")}>About Us</Link></li>
             <li>
                 {user ? '' : <Link to="/login">Login</Link>}
             </li>

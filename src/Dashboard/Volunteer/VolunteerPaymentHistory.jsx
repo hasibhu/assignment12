@@ -1,10 +1,8 @@
-
-
 import UseAuth from '../../Hooks/UseAuth';
 import useAllPayments from '../../Hooks/useAllPayments';
 import PaymentHistoryTable from '../Payment/PaymentHistoryTable';
 
-const AdminPaymenHistory = () => {
+const VolunteerPaymentHistory = () => {
     const [payments, loading, refetch] = useAllPayments();
     const { user } = UseAuth();
 
@@ -13,10 +11,10 @@ const AdminPaymenHistory = () => {
     const totalDonation = AllPayments?.reduce((total, payment) => total + parseFloat(payment.price), 0);
 
     return (
-        <div className='border-t-4 border-blue-600 rounded-xl p-6'>
-
-            <h1 className='text-3xl text-center p-4'>You have made total {AllPayments.length} {AllPayments.length > 1 ? "payments" : "payment"}. </h1>
-            <h1 className='text-center p-8'>Total amount paid: ${totalDonation.toFixed(2)}</h1>
+        <div className='border-t-4 border-blue-600 rounded-xl'>
+           
+            <h1 className='text-3xl text-center p-4'>You have made total {AllPayments.length} {AllPayments.length>1?"payments": "payment"}. </h1>
+            <h1>Total amount paid: ${totalDonation.toFixed(2)}</h1>
             <div className="overflow-x-auto">
                 <table className="table table-zebra">
                     <thead>
@@ -45,4 +43,4 @@ const AdminPaymenHistory = () => {
     );
 };
 
-export default AdminPaymenHistory;
+export default VolunteerPaymentHistory;

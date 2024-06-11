@@ -27,6 +27,8 @@ import Payment from "../Dashboard/Payment/Payment";
 import PrivateRoute from "./PrivateRoute";
 import PrivateAdminRoute from "./PrivateAdminRoute";
 import PrivateVolunteerRoute from "./PrivateVolunteerRoute";
+import VolunteerPaymentHistory from "../Dashboard/Volunteer/VolunteerPaymentHistory";
+import AboutUs from "../Pages/AboutUs";
 
 
 
@@ -54,6 +56,10 @@ export const router = createBrowserRouter([
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/aboutUs',
+                element: <AboutUs></AboutUs>
             },
             {
                 path: '/postBlog',
@@ -131,6 +137,8 @@ export const router = createBrowserRouter([
                 path: 'allPaymentHistory',
                 element: <AllPaymentHistory></AllPaymentHistory>
             },
+
+
            
             // Vlunteer routes
             {
@@ -146,6 +154,12 @@ export const router = createBrowserRouter([
             {
                 path: 'volunteerPayment',
                 element: <PrivateVolunteerRoute><Payment></Payment></PrivateVolunteerRoute>
+            },
+            {
+                path: 'volunteerPaymentHostory',
+                element: <PrivateVolunteerRoute>
+                    <VolunteerPaymentHistory></VolunteerPaymentHistory>
+                    </PrivateVolunteerRoute>
             },
 
     

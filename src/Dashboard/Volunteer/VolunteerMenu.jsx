@@ -9,7 +9,7 @@ const VolunteerMenu = () => {
             <li><NavLink to='/dashboard/myDonationHistory'><FaList /> My Donation History</NavLink></li>
             <li><NavLink to='/dashboard/createDonationRequestByVolunteer'><FaUtensils /> Create Request</NavLink></li>
             <li><NavLink to='/dashboard/volunteerPayment'><FaUtensils /> Pay</NavLink></li>
-            <li><NavLink to='/dashboard/bloodDonationHistory'><FaHistory /> Payment History</NavLink></li>
+            <li><NavLink to='/dashboard/volunteerPaymentHostory'><FaHistory /> Payment History</NavLink></li>
             
         </div>
     );

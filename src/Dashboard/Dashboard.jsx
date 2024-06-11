@@ -1,13 +1,8 @@
 
 
-
-
-
-
-
 import { FaBook, FaEnvelope, FaHome, FaList, FaSearch, FaUsers, FaUtensils } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
-
+import logo from '../assets/images/logo.png'
 import AdminMenu from './Admin/AdminMenu';
 import DonorMenu from './Donor/DonorMenu';
 import VolunteerMenu from './Volunteer/VolunteerMenu';
@@ -31,6 +26,7 @@ const Dashboard = () => {
     return (
         <div className="flex mt-8 border-t-4 border-yellow-500 rounded-xl pt-3">
             <div className="w-64 min-h-full bg-orange-400">
+                <img className='mx-auto mt-5 w-36 h-22 rounded-full' src={logo} alt="" />
                 <ul className="menu p-7">
                     {loading ? (
                         <span className="loading loading-ring text-red-600 loading-lg mx-auto"></span>

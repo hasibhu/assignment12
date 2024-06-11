@@ -18,16 +18,16 @@ const VolunteerRoute = ({ children }) => {
 
     const matchingUser = users?.find(databaseUser => databaseUser?.email === loggedInUserEmail);
 
-    console.log(loggedInUserEmail, users, matchingUser);
+    // console.log(loggedInUserEmail, users, matchingUser);
 
     const userRole = matchingUser?.role;
 
-    // if (loading || isAdminLoading) return <h1>Loading....</h1>;
+    if (loading || loading) return <h1>Loading....</h1>;
     if (user && userRole === 'volunteer') return children;
 
 
 
-    if (user && userRole !== 'volunteer') return <Navigate to='/' state={{ from: location }} replace ></Navigate>;
+    // if (user && userRole !== 'volunteer') return <Navigate to='/' state={{ from: location }} replace ></Navigate>;
 
 
     // <Navigate to='/' state={{ from: location }} replace ></Navigate>

@@ -34,6 +34,69 @@ const CheckOutForm = () => {
         fetchClientSecret();
     }, [axiosPublic, paymentAmount]);
 
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+
+    //     if (!stripe || !elements) {
+    //         return;
+    //     }
+
+    //     const card = elements.getElement(CardElement);
+    //     if (card === null) {
+    //         return;
+    //     }
+
+    //     const { error, paymentMethod } = await stripe.createPaymentMethod({
+    //         type: 'card',
+    //         card,
+    //     });
+
+    //     if (error) {
+    //         setError(error.message);
+    //     } else {
+    //         setError('');
+    //     }
+
+    //     if (!clientSecret) {
+    //         setError('Client secret not set.');
+    //         return;
+    //     }
+
+    //     const { paymentIntent, error: confirmError } = await stripe.confirmCardPayment(clientSecret, {
+    //         payment_method: {
+    //             card: card,
+    //             billing_details: {
+    //                 email: user?.email || 'Anonymous',
+    //                 name: user?.displayName || "Anonymous",
+    //             },
+    //         },
+    //     });
+
+    //     if (confirmError) {
+    //         setError(confirmError.message);
+    //     } else {
+    //         if (paymentIntent.status === 'succeeded') {
+    //             setTransactionId(paymentIntent.id);
+
+    //             const payment = {
+    //                 name: user?.displayName,
+    //                 email: user?.email,
+    //                 transactionId: paymentIntent.id,
+    //                 price: paymentAmount,
+    //                 date: new Date(),
+    //             };
+
+    //             const res = await axiosPublic.post('/payments', payment);
+    //             console.log(res);
+    //             // if (data.insertedId) {
+    //             //     console.log('Payment saved', data);
+
+    //             // }
+    //             // navigate('/dashboard/paymentHistory');
+    //         }
+    //     }
+    // };
+
     const handleSubmit = async (event) => {
         event.preventDefault();
 
@@ -78,24 +141,27 @@ const CheckOutForm = () => {
             if (paymentIntent.status === 'succeeded') {
                 setTransactionId(paymentIntent.id);
 
+                const currentDate = new Date();
+                const formattedDate = currentDate.toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                });
+
                 const payment = {
                     name: user?.displayName,
                     email: user?.email,
                     transactionId: paymentIntent.id,
                     price: paymentAmount,
-                    date: new Date(),
+                    date: formattedDate, // Use formatted date
                 };
 
                 const res = await axiosPublic.post('/payments', payment);
                 console.log(res);
-                // if (data.insertedId) {
-                //     console.log('Payment saved', data);
-
-                // }
-                // navigate('/dashboard/paymentHistory');
             }
         }
     };
+
 
     return (
         <form onSubmit={handleSubmit} className="w-[490px] mx-auto pt-16">
