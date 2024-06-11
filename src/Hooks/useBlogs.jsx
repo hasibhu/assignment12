@@ -14,7 +14,8 @@ const useBlogs = () => {
             await new Promise(resolve => setTimeout(resolve, 1000));
             const { data } = await axiosPublic.get('/blogs');
             return data;
-        }
+        },
+         staleTime: 1000 * 60 * 5, // Optional: Cache data for 5 minutes
     });
 
 

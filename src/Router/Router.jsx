@@ -32,6 +32,8 @@ import AboutUs from "../Pages/AboutUs";
 import BecomeADonor from "../SharedPages/HeropartComponent/BecomeADonor";
 import BenefitsOfBloodDonation from "../SharedPages/HeropartComponent/BenefitsOfBloodDonation";
 import HowYourDonationHelps from "../SharedPages/HeropartComponent/HowYourDonationHelps";
+import BlogDetails from "../Pages/Blogs/BlogDetails";
+import Imprint from "../SharedPages/Imprint";
 
 
 
@@ -55,10 +57,15 @@ export const router = createBrowserRouter([
                 path: '/donationPosts/:id',
                 element: <DonationRequestDetails></DonationRequestDetails>,
                 loader: ({ params }) => fetch(`http://localhost:3004/donationRequests/${params.id}`)
-            }, 
+            },
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>
+            },
+            {
+                path: '/blogs/:id',
+                element: <BlogDetails></BlogDetails>,
+                loader: ({ params }) => fetch(`http://localhost:3004/blogs/${params.id}`)
             },
             {
                 path: '/aboutUs',
@@ -82,16 +89,20 @@ export const router = createBrowserRouter([
                 element: <UpdateProfile></UpdateProfile>
             },
             {
-                path:"/become-a-donor",
-                element:< BecomeADonor />
+                path: "/become-a-donor",
+                element: < BecomeADonor />
             },
             {
-                path:"/benefits-of-blood-donation",
+                path: "/benefits-of-blood-donation",
                 element: <BenefitsOfBloodDonation />
             },
             {
-                path:  "/how-your-donation-helps",
+                path: "/how-your-donation-helps",
                 element: <HowYourDonationHelps />
+            },
+            {
+                path: '/imprint',
+                element: <Imprint></Imprint>
             }
         ]
     },

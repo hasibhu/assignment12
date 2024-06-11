@@ -8,7 +8,9 @@ const HeroPart = () => {
     const { user } = UseAuth();
 
     return (
-        <div className="mt-28 pt-16 border-t-4 border-yellow-500 rounded-xl">
+        <div className="mt-36 pt-16 border-t-4 border-yellow-500 rounded-xl">
+            <h1 className="text-7xl font-bold text-center ">NEXAS</h1>
+            <h5 className=" font-bold text-center pb-8 ">Blood for Life </h5>
             <h1 className="text-4xl font-bold text-center mb-12">Join Our Mission to Save Lives</h1>
             <div className="flex flex-row justify-around">
                 <div className="card w-[290px] bg-base-100 shadow-xl">

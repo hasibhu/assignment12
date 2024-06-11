@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { FcDonate } from "react-icons/fc";
-import logo from '../assets/images/logo.png';
+import logo from '../assets/Preview.png';
 import UseAuth from "../Hooks/UseAuth";
 import useAllusers from "../Hooks/useAllUsers";
 
@@ -75,8 +75,8 @@ const Navbar = () => {
                         {navOptions}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl text-white">
-                    <img className="w-16 h-16 rounded-full" src={logo} alt="Logo" />
+                <a className=" normal-case text-xl text-white">
+                    <Link to='/'> <img className="w-20  h-20  rounded-full" src={logo} alt="Logo" /></Link>
                 </a>
             </div>
 
