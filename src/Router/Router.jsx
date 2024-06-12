@@ -35,6 +35,8 @@ import HowYourDonationHelps from "../SharedPages/HeropartComponent/HowYourDonati
 import BlogDetails from "../Pages/Blogs/BlogDetails";
 import Imprint from "../SharedPages/Imprint";
 import AllVolunteerRequests from "../Dashboard/Volunteer/AllVolunteerRequests";
+import UpdateDonationRequest from "../Dashboard/UpdateDonationRequest";
+import ManageDonationRequestDonor from "../Dashboard/Donor/ManageDonationRequestDonor";
 
 
 
@@ -126,6 +128,10 @@ export const router = createBrowserRouter([
                 element: <CreateDonationRequest></CreateDonationRequest>
             },
             {
+                path: 'manageDonationRequestDonor',
+                element: <ManageDonationRequestDonor></ManageDonationRequestDonor>
+            },
+            {
                 path: 'donorPayment',
                 element: <PrivateRoute><PaymentDonor></PaymentDonor></PrivateRoute>
             },
@@ -184,6 +190,12 @@ export const router = createBrowserRouter([
             {
                 path: 'createDonationRequestByVolunteer',
                 element: <CreateDonationRequest></CreateDonationRequest>
+
+            },
+            {
+                path: 'donationRequests/update/:id',
+                element: <UpdateDonationRequest></UpdateDonationRequest>,
+                loader: ({ params }) => fetch(`http://localhost:3004/donationRequests/${params.id}`)
 
             },
             {

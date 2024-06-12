@@ -1,5 +1,6 @@
-import { FaTrashAlt } from "react-icons/fa";
+import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import useAllDonationRequests from "../../Hooks/useAllDonationRequests";
+import { Link } from "react-router-dom";
 
 
 const DonationRequest = () => {
@@ -23,23 +24,23 @@ const DonationRequest = () => {
                                     <th>Email</th>
                                     <th>Role</th>
                                     <th>Status</th>
-                                    <th>Action</th>
+                                <th className="text-center">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {/* rows */}
-                                {donationRequests.map((user, index) => (
-                                    <tr key={user._id}>
+                                {donationRequests.map((data, index) => (
+                                    <tr key={data._id}>
                                         <th>{index + 1}</th>
-                                        <td>{user.recipientName}</td>
-                                        <td>{user.email}</td>
+                                        <td>{data.recipientName}</td>
+                                        <td>{data.email}</td>
 
 
                                         {/* role part */}
 
                                         <td>
                                             <select
-                                                value={user.role || "volunteer"}
+                                                value={data.role || "volunteer"}
                                                 // onChange={(e) => handleChangeRole(user, e.target.value)}
                                                 className="select select-bordered"
                                             >
@@ -54,16 +55,25 @@ const DonationRequest = () => {
                                         <td>
                                             <button
                                                 // onClick={() => handleUserStatusChange(user)}
-                                                className={`btn ${user.status === 'active' ? 'btn-accent' : 'btn-danger'}`}
+                                                className={`btn ${data.status === 'active' ? 'btn-accent' : 'btn-danger'}`}
                                             >
-                                                {user.status === 'pending' ? 'Pending' : 'InProgress'}
+                                                {data.status === 'pending' ? 'Pending' : 'InProgress'}
                                             </button>
                                         </td>
 
                                        
 
 
-                                        <td>
+                                        <td className="text-center">
+                                            <Link to={`/dashboard/donationRequests/update/${data?._id}`} >
+                                                <button
+                                                    className="btn btn-ghost btn-lg"
+                                                >
+                                                    <FaEdit className="text-green-600"></FaEdit>
+                                                </button>
+
+                                            </Link>
+
                                             <button
                                                 className="btn btn-ghost btn-lg"
                                             >

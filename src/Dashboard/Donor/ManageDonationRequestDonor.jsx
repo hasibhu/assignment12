@@ -1,14 +1,12 @@
 
-
-
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import UseAuth from "../../Hooks/UseAuth";
 import useAllDonationRequests from "../../Hooks/useAllDonationRequests";
-import VolunteerDonationRequestCard from "./VolunteerDonationRequestCard";
+
 import { Link } from "react-router-dom";
 
 
-const AllVolunteerRequests = () => {
+const ManageDonationRequestDonor = () => {
 
     const [donationRequests, loading, refetch] = useAllDonationRequests();
     const { user } = UseAuth();
@@ -19,7 +17,7 @@ const AllVolunteerRequests = () => {
     console.log(matchingRequests);
 
     return (
-  
+
 
         <div>
             <h1 className="text-center">Summary of all post will be here {matchingRequests.length}</h1>
@@ -35,7 +33,7 @@ const AllVolunteerRequests = () => {
                                 <th>#</th>
                                 <th>Name</th>
                                 <th>Email</th>
-                               
+
                                 <th>Status</th>
                                 <th className="text-center">Action</th>
                             </tr>
@@ -65,10 +63,10 @@ const AllVolunteerRequests = () => {
                                             >
                                                 <FaEdit className="text-green-600"></FaEdit>
                                             </button>
-                                                                  
+
                                         </Link>
 
-                                        
+
 
 
 
@@ -89,4 +87,4 @@ const AllVolunteerRequests = () => {
     );
 };
 
-export default AllVolunteerRequests;
+export default ManageDonationRequestDonor;
