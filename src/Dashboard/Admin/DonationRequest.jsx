@@ -41,7 +41,7 @@ const DonationRequest = () => {
 
     return (
         <div>
-            <h1 className="text-center">Summary of all request post will be here {donationRequests.length}</h1>
+            <h1 className="text-center text-3xl font-bold p-10">Summary of all requests {donationRequests.length}</h1>
             
 
             <div>

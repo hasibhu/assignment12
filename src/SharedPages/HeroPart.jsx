@@ -12,7 +12,8 @@ const HeroPart = () => {
             <h1 className="text-7xl font-bold text-center ">NEXAS</h1>
             <h5 className=" font-bold text-center pb-8 ">Blood for Life </h5>
             <h1 className="text-4xl font-bold text-center mb-12">Join Our Mission to Save Lives</h1>
-            <div className="flex flex-row justify-around">
+            {/* <div className="lg:flex  flex-row lg:justify-around"> */}
+            <div className="lg:grid grid-cols-3 m-10">
                 <div className="card w-[290px] bg-base-100 shadow-xl">
                     <div className="card-body">
                         <h2 className="card-title text-sm font-bold">Become a Donor</h2>

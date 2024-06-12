@@ -1,9 +1,12 @@
+import { Link } from "react-router-dom";
 
 
 const HomePageDontionRequestCard = ({ data }) => {
     console.log(data);
     return (
-        <div className='card border border-blue-300'>
+        
+        <Link to='/donationRequestPosts'>
+            <div className='card border border-blue-300'>
             <div>
                 <h2>Donation Date: {data.date}</h2>
                 <h2></h2>
@@ -12,7 +15,7 @@ const HomePageDontionRequestCard = ({ data }) => {
                 <img className='w-36 h-36 mx-auto' src={data.image} alt="" />
             </div>
             <h1 className="text-center">Hospital Name: {data.hospital}</h1>
-        </div>
+        </div></Link>
     );
 };
 

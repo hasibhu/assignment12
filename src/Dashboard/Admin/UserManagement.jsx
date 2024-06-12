@@ -65,7 +65,7 @@ const UserManagement = () => {
 
     return (
         <div>
-            <h1> All Users will be here {users.length}</h1>
+            <h1 className='text-4xl text-center font-bold p-6'>User Management Pannel</h1>
             <div>
                 <div className="flex justify-evenly my-4">
                     <h2 className="text-3xl">All Users</h2>
@@ -79,6 +79,7 @@ const UserManagement = () => {
                                 <tr>
                                     <th>#</th>
                                     <th>Name</th>
+                                    <th>Avatar</th>
                                     <th>Email</th>
                                     <th>Role</th>
                                     <th>Status</th>
@@ -91,6 +92,7 @@ const UserManagement = () => {
                                     <tr key={user._id}>
                                         <th>{index + 1}</th>
                                         <td>{user.name}</td>
+                                        <td><img className='w-10 h-10 rounded-full' src={user?.image} alt="" /></td>
                                         <td>{user.email}</td>
                                         
                                        

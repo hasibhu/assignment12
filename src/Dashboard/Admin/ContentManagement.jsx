@@ -48,7 +48,7 @@ const ContentManagement = () => {
 
     return (
         <div>
-            <h1>All Blog Post willbe here.... {blogs.length}</h1>
+            <h1 className="text-3xl font-bold text-center p-6">All Blog Posts</h1>
             
 
             <div>

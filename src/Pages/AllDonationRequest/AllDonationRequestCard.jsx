@@ -4,11 +4,7 @@ import UseAuth from "../../Hooks/UseAuth";
 import useAllusers from "../../Hooks/useAllUsers";
 
 const AllDonationRequestCard = ({ data, searchQuery }) => {
-    // console.log(data);
-    // const { user } = UseAuth();
-    // const [users, loading, refetch] = useAllusers();
-    // const loggedInUserEmail = user.email;
-    // const currentUser = users.find(user => user.email === loggedInUserEmail);
+  
 
     const highlightText = (text, highlight) => {
         const parts = text.split(new RegExp(`(${highlight})`, 'gi'));

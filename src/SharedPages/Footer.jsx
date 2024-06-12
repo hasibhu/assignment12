@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer className="footer p-10 bg-neutral text-neutral-content mt-10 pt-32">
             <aside>
-                <img src={logo} alt="" />
+                <img className="w-28 h-26 rounded-full" src={logo} alt="" />
                 <p>Blood Donor Club<br />Providing reliable blood donation support since 2005</p>
             </aside>
             <div>

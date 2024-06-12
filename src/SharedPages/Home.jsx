@@ -29,16 +29,17 @@ const Home = () => {
                 <HeroPart />
             </div>
             <div data-aos="fade-right">
-                <DonorStatistics />
-            </div>
-            <div data-aos="fade-right">
                 <HomePageDontionRequests />
             </div>
+            <div data-aos="fade-left">
+                <DonorStatistics />
+            </div>
+           
             {/* Uncomment the Steps component if you need it */}
             {/* <div data-aos="fade-up">
                 <Steps />
             </div> */}
-            <div data-aos="fade-left">
+            <div data-aos="fade-right">
                 <TestimonialsAndStories />
             </div>
             <div data-aos="fade-up">

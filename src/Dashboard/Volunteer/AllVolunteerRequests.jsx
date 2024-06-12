@@ -54,75 +54,85 @@ const AllVolunteerRequests = () => {
 
 
     return (
-  
+    
 
         <div>
-            <h1 className="text-center">Summary of all post will be here {matchingRequests.length}</h1>
+            <h1 className="text-center text-3xl p-10">Summary of all post will be here.</h1>
+
+            {
+                donationRequests < 1 ? <> <h1 className="text-center text-2xl pt-28 text-red-600">You haven't make any request.</h1></>
+                    :
+                    <>
+                        <div>
+
+                            <div className="overflow-x-auto">
+                                <table className="table table-zebra w-full">
+                                    {/* head */}
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Name</th>
+                                            <th>Email</th>
+
+                                            <th>Status</th>
+                                            <th className="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {/* rows */}
+                                        {matchingRequests.map((data, index) => (
+                                            <tr key={user._id}>
+                                                <th>{index + 1}</th>
+                                                <td>{data.recipientName}</td>
+                                                <td>{data.email}</td>
+
+                                                {/* status part */}
+                                                <td>
+                                                    <button
+                                                        // onClick={() => handleUserStatusChange(user)}
+                                                        className={`btn ${data.status === 'active' ? 'btn-accent' : 'btn-danger'}`}
+                                                    >
+                                                        {user.status === 'pending' ? 'Pending' : 'InProgress'}
+                                                    </button>
+                                                </td>
+
+                                                <td className="text-center">
+                                                    <Link to={`/dashboard/donationRequests/update/${data?._id}`} >
+                                                        <button
+                                                            className="btn btn-ghost btn-lg"
+                                                        >
+                                                            <FaEdit className="text-green-600"></FaEdit>
+                                                        </button>
+
+                                                    </Link>
 
 
-            <div>
-
-                <div className="overflow-x-auto">
-                    <table className="table table-zebra w-full">
-                        {/* head */}
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                               
-                                <th>Status</th>
-                                <th className="text-center">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {/* rows */}
-                            {matchingRequests.map((data, index) => (
-                                <tr key={user._id}>
-                                    <th>{index + 1}</th>
-                                    <td>{data.recipientName}</td>
-                                    <td>{data.email}</td>
-
-                                    {/* status part */}
-                                    <td>
-                                        <button
-                                            // onClick={() => handleUserStatusChange(user)}
-                                            className={`btn ${data.status === 'active' ? 'btn-accent' : 'btn-danger'}`}
-                                        >
-                                            {user.status === 'pending' ? 'Pending' : 'InProgress'}
-                                        </button>
-                                    </td>
-
-                                    <td className="text-center">
-                                        <Link to={`/dashboard/donationRequests/update/${data?._id}`} >
-                                            <button
-                                                className="btn btn-ghost btn-lg"
-                                            >
-                                                <FaEdit className="text-green-600"></FaEdit>
-                                            </button>
-                                                                  
-                                        </Link>
-
-                                        
 
 
 
-                                        <button
-                                            onClick={() => handleDelete(data?._id)}
-                                            className="btn btn-ghost btn-lg"
-                                        >
-                                            <FaTrashAlt className="text-red-600"></FaTrashAlt>
-                                        </button>
-                                    </td>
-                                    <td></td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+                                                    <button
+                                                        onClick={() => handleDelete(data?._id)}
+                                                        className="btn btn-ghost btn-lg"
+                                                    >
+                                                        <FaTrashAlt className="text-red-600"></FaTrashAlt>
+                                                    </button>
+                                                </td>
+                                                <td></td>
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </>
+            }
+          
         </div>
     );
 };
 
 export default AllVolunteerRequests;
+
+
+
+

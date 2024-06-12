@@ -16,9 +16,9 @@ const AdminDonationRequest = () => {
     console.log(matchingRequests);
 
     return (
-        <div className="mt-16">
+        <div className="mt-16 pb-8">
             <h1 className='text-center text-2xl font-bold p-6'>Your 3 recent donation requests. </h1>
-            <div className="grid grid-cols-3">
+            <div className="grid lg:grid-cols-3 gap-4">
                 {
                     matchingRequests.slice(0, 3).map((matchingRequest, index) => <AdminDonationRequestCard key={index + 1} data={matchingRequest}></AdminDonationRequestCard>)
                 }

@@ -76,7 +76,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/postBlog',
-                element: <PostYourBlog></PostYourBlog>
+                element: <PrivateRoute><PostYourBlog></PostYourBlog></PrivateRoute>
             },
             {
                 path: '/login',
@@ -89,7 +89,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/updateProfile',
-                element: <UpdateProfile></UpdateProfile>
+                element: <PrivateRoute> <UpdateProfile></UpdateProfile></PrivateRoute>
             },
             {
                 path: "/become-a-donor",
