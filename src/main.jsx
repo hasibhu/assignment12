@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import { RouterProvider } from "react-router-dom";
 import { router } from './Router/Router.jsx';
-// import { HelmetProvider } from 'react-helmet-async';
+import { HelmetProvider } from 'react-helmet-async';
 import AuthProvider from './AuthProvider/AuthProvider.jsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
@@ -15,11 +15,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
     <AuthProvider>
       <QueryClientProvider client={queryClient}>
-        {/* <HelmetProvider> */}
+        <HelmetProvider>
           <div className=' mx-auto max-w-screen-xl'>
             <RouterProvider router={router} />
           </div>
-        {/* </HelmetProvider> */}
+        </HelmetProvider>
       </QueryClientProvider>
     </AuthProvider>
 

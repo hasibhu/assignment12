@@ -11,6 +11,7 @@ import NewsletterSignUp from "./NewsletterSignUp";
 import ShareWithFriends from "./ShareWithFriends";
 import TestimonialsAndStories from "./TestimonialsAndStories";
 import HomePageDontionRequests from "./HomePageDontionRequests";
+import { Helmet } from "react-helmet-async";
 
 const Home = () => {
     useEffect(() => {
@@ -22,6 +23,9 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Nexas | Home </title>
+            </Helmet>
             <div data-aos="fade-up">
                 <HomepageCarousel />
             </div>

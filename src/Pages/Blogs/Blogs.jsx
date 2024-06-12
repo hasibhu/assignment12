@@ -2,6 +2,7 @@
 import { Link } from "react-router-dom";
 import BlogPosts from "./BlogPosts";
 import UseAuth from "../../Hooks/UseAuth";
+import { Helmet } from "react-helmet-async";
 
 const Blogs = () => {
     
@@ -9,7 +10,9 @@ const Blogs = () => {
 
     return (
         <div>
-            
+            <Helmet>
+                <title>Nexas | Blogs </title>
+            </Helmet>
             <div>
                 <BlogPosts></BlogPosts>
             </div>

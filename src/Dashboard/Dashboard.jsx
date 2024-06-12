@@ -8,6 +8,7 @@ import DonorMenu from './Donor/DonorMenu';
 import VolunteerMenu from './Volunteer/VolunteerMenu';
 import useAllusers from '../Hooks/useAllUsers';
 import UseAuth from '../Hooks/UseAuth';
+import { Helmet } from 'react-helmet-async';
 
 const Dashboard = () => {
 
@@ -25,6 +26,9 @@ const Dashboard = () => {
  
     return (
         <div className="lg:flex mt-8 border-t-4 border-yellow-500 rounded-xl pt-3">
+            <Helmet>
+                <title>Nexas | User Dashboard </title>
+            </Helmet>
             <div className="w-64 min-h-full bg-orange-400">
                 <img className='mx-auto mt-5 w-36 h-22 rounded-full' src={logo} alt="" />
                 <ul className="menu p-7">

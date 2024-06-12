@@ -10,6 +10,7 @@ import meetTeam from '../assets/meet.jpeg'
 import whatWeDo from '../assets/whatWeDo.png'
 import getInvolved from '../assets/getInvolved.png'
 import SmoothScroll from '../SmoothScrooll/SmoothScroll';
+import { Helmet } from 'react-helmet-async';
 
 const AboutUs = () => {
     const { user } = UseAuth();
@@ -21,6 +22,10 @@ const AboutUs = () => {
 
     return (
         <section className="about-us py-12 bg-gray-100 pt-36">
+
+            <Helmet>
+                <title>Nexas | About </title>
+            </Helmet>
             <div className="container mx-auto px-4">
                 <h1 className="text-4xl font-bold mb-8 text-center bg-blue-500 h-16 rounded-xl" data-aos="fade-up">About Us</h1>
 

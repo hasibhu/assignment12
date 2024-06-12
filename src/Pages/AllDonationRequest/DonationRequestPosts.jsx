@@ -88,6 +88,7 @@ import React, { useState, useEffect } from 'react';
 import useAllDonationRequests from "../../Hooks/useAllDonationRequests";
 import SmoothScroll from "../../SmoothScrooll/SmoothScroll";
 import AllDonationRequestCard from "./AllDonationRequestCard";
+import { Helmet } from 'react-helmet-async';
 
 const DonationRequestPosts = () => {
     const [donationRequests, loading, refetch] = useAllDonationRequests();
@@ -131,6 +132,9 @@ const DonationRequestPosts = () => {
 
     return (
         <div className='pt-28'>
+            <Helmet>
+                <title>Nexas | Donation Request </title>
+            </Helmet>
             <h1 className="text-center text-2xl font-bold p-10">
                 Total {donationRequests.length} Donation Requests Are Available.
             </h1>
