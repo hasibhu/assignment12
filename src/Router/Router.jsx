@@ -34,6 +34,7 @@ import BenefitsOfBloodDonation from "../SharedPages/HeropartComponent/BenefitsOf
 import HowYourDonationHelps from "../SharedPages/HeropartComponent/HowYourDonationHelps";
 import BlogDetails from "../Pages/Blogs/BlogDetails";
 import Imprint from "../SharedPages/Imprint";
+import AllVolunteerRequests from "../Dashboard/Volunteer/AllVolunteerRequests";
 
 
 
@@ -171,6 +172,10 @@ export const router = createBrowserRouter([
                 path: 'VolunteerHome',
                 element: <PrivateVolunteerRoute><VolunteerHome></VolunteerHome></PrivateVolunteerRoute>
 
+            },
+            {
+                path: 'allVolunteerDonationRequests',
+                element: <AllVolunteerRequests></AllVolunteerRequests>
             },
             {
                 path: 'createDonationRequestByVolunteer',

@@ -1,6 +1,6 @@
+import React from 'react';
 
-const AdminDonationRequestCard = ({ data }) => {
-    console.log(data);
+const DonorDonationRequestCard = ({data}) => {
     return (
         <div className='card border border-blue-300'>
             <div>
@@ -15,4 +15,4 @@ const AdminDonationRequestCard = ({ data }) => {
     );
 };
 
-export default AdminDonationRequestCard;
+export default DonorDonationRequestCard;

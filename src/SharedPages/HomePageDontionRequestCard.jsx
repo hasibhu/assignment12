@@ -1,5 +1,6 @@
 
-const AdminDonationRequestCard = ({ data }) => {
+
+const HomePageDontionRequestCard = ({ data }) => {
     console.log(data);
     return (
         <div className='card border border-blue-300'>
@@ -15,4 +16,4 @@ const AdminDonationRequestCard = ({ data }) => {
     );
 };
 
-export default AdminDonationRequestCard;
+export default HomePageDontionRequestCard;

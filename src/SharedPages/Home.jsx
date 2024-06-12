@@ -10,6 +10,7 @@ import HomepageCarousel from "./HomepageCarousel";
 import NewsletterSignUp from "./NewsletterSignUp";
 import ShareWithFriends from "./ShareWithFriends";
 import TestimonialsAndStories from "./TestimonialsAndStories";
+import HomePageDontionRequests from "./HomePageDontionRequests";
 
 const Home = () => {
     useEffect(() => {
@@ -29,6 +30,9 @@ const Home = () => {
             </div>
             <div data-aos="fade-right">
                 <DonorStatistics />
+            </div>
+            <div data-aos="fade-right">
+                <HomePageDontionRequests />
             </div>
             {/* Uncomment the Steps component if you need it */}
             {/* <div data-aos="fade-up">

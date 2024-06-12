@@ -2,7 +2,7 @@
 
 import { FaBook, FaEnvelope, FaHome, FaList, FaSearch, FaUsers, FaUtensils } from 'react-icons/fa';
 import { NavLink, Outlet } from 'react-router-dom';
-import logo from '../assets/images/logo.png'
+import logo from '../assets/Preview.png'
 import AdminMenu from './Admin/AdminMenu';
 import DonorMenu from './Donor/DonorMenu';
 import VolunteerMenu from './Volunteer/VolunteerMenu';

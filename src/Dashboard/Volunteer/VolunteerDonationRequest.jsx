@@ -1,10 +1,12 @@
+
+
 import UseAuth from "../../Hooks/UseAuth";
 import useAllDonationRequests from "../../Hooks/useAllDonationRequests";
-import DonorDonationRequestCard from "./DonorDonationRequestCard";
+import VolunteerDonationRequestCard from "./VolunteerDonationRequestCard";
 
 
-const DonorDonationRequest = () => {
-    
+const VolunteerDonationRequest = () => {
+
     const [donationRequests, loading, refetch] = useAllDonationRequests();
     const { user } = UseAuth();
 
@@ -15,14 +17,14 @@ const DonorDonationRequest = () => {
 
     return (
         <div className="mt-16 ">
-            <h1 className="text-center text-2xl">Your latest 3 donation requests: </h1>
+            <h1 className="text-center text-2xl p-6">Your latest 3 donation requests: </h1>
             <div className=" lg:grid lg:grid-cols-3 gap-3">
                 {
-                    matchingRequests.slice(-3).map((matchingRequest) => <DonorDonationRequestCard key={matchingRequest._id} data={matchingRequest}></DonorDonationRequestCard>)
+                    matchingRequests.slice(-3).map((matchingRequest) => <VolunteerDonationRequestCard key={matchingRequest._id} data={matchingRequest}></VolunteerDonationRequestCard>)
                 }
-          </div>
+            </div>
         </div>
     );
 };
 
-export default DonorDonationRequest;
+export default VolunteerDonationRequest;
