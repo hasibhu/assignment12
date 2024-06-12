@@ -4,8 +4,7 @@
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2'
-// import useAuth from '../AuthProvider/UseAuth';
-import SocialLogin from './SocialLogin';
+import loginImage from '../assets/loginImage.jpeg'
 import UseAuth from '../Hooks/UseAuth';
 
 const Login = () => {
@@ -59,7 +58,7 @@ const Login = () => {
             {/* <Helmet>
                 <title>Blood Donor Club | Login</title>
             </Helmet> */}
-            <div className="hero min-h-screen bg-base-200 pt-32">
+             <div className="hero min-h-screen pt-32" style={{ backgroundImage: `url(${loginImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
                 <div className="hero-content flex-col md:flex-row-reverse">
                     <div className="text-center md:w-1/2 lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
@@ -97,11 +96,8 @@ const Login = () => {
                             </div>
                         </form>
 
-                        <p className='p-2 mx-auto text-xl'><small>New Here? <Link to="/signup">Create an account</Link> </small></p>
-                        <div className='mx-auto mb-5'>
-                            <div className='divider '></div>
-                            <SocialLogin></SocialLogin>
-                        </div>
+                        <p className='p-2 mx-auto text-xl'><small>New Here? <Link to="/signup"><span className='text-purple-500'>Create an account</span></Link> </small></p>
+                        
                     </div>
 
 

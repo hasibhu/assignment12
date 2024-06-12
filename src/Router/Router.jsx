@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
             {
                 path: '/donationPosts/:id',
                 element: <DonationRequestDetails></DonationRequestDetails>,
-                loader: ({ params }) => fetch(`http://localhost:3004/donationRequests/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-weld-six.vercel.app/donationRequests/${params.id}`)
             },
             {
                 path: '/blogs',
@@ -68,7 +68,7 @@ export const router = createBrowserRouter([
             {
                 path: '/blogs/:id',
                 element: <BlogDetails></BlogDetails>,
-                loader: ({ params }) => fetch(`http://localhost:3004/blogs/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-weld-six.vercel.app/blogs/${params.id}`)
             },
             {
                 path: '/aboutUs',
@@ -195,7 +195,7 @@ export const router = createBrowserRouter([
             {
                 path: 'donationRequests/update/:id',
                 element: <UpdateDonationRequest></UpdateDonationRequest>,
-                loader: ({ params }) => fetch(`http://localhost:3004/donationRequests/${params.id}`)
+                loader: ({ params }) => fetch(`https://server-weld-six.vercel.app/donationRequests/${params.id}`)
 
             },
             {

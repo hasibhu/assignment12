@@ -1,9 +1,51 @@
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import useBlogs from "../../Hooks/useBlogs";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAllUsers from "../../Hooks/useAllUsers";
+import UseAuth from "../../Hooks/UseAuth";
 
 
 const ContentManagement = () => {
     const [blogs, loading, refetch] = useBlogs();
+    const axiosPublic = useAxiosPublic();
+    const { user } = UseAuth();
+    const [users, ,] = useAllUsers();
+    const loggedInUserEmail = user?.email;
+    const matchingUser = users?.find(user => user?.email === loggedInUserEmail);
+    const userRole = matchingUser?.role;
+    
+
+    const handleDelete = async id => {
+        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await axiosPublic.delete(`/deleteBlog/${id}`);
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                    const remainingPosts = blogs.filter(post => post.id !== id);
+                    // setMyPosts(remainingPosts);
+                    refetch(remainingPosts)
+                } catch (err) {
+                    // toast.error(err.message)
+                }
+            }
+        });
+    };
+
+
     return (
         <div>
             <h1>All Blog Post willbe here.... {blogs.length}</h1>
@@ -27,46 +69,38 @@ const ContentManagement = () => {
                         </thead>
                         <tbody>
                             {/* rows */}
-                            {blogs.map((user, index) => (
-                                <tr key={user._id}>
+                            {blogs.map((blog, index) => (
+                                <tr key={blog._id}>
                                     <th>{index + 1}</th>
                                     
-                                    <td>{user.name}</td>
-                                    <td>{user.email}</td>
+                                    <td>{blog.name}</td>
+                                    <td>{blog.email}</td>
 
 
                                     {/* role part */}
 
                                     <td>
-                                        <select
-                                            value={user.role || "volunteer"}
-                                            // onChange={(e) => handleChangeRole(user, e.target.value)}
-                                            className="select select-bordered"
-                                        >
-                                            <option value="admin">Admin</option>
-                                            <option value="donor">Donor</option>
-                                            <option value="volunteer">Volunteer</option>
-                                        </select>
+                                        {userRole}
                                     </td>
 
 
                                     {/* status part */}
                                     <td>
-                                        {user.district}
+                                        {blog.district}
                                     </td>
 
                                     <td>
-                                        {user.headLine}
+                                        {blog.headLine}
                                     </td>
 
 
 
 
                                     <td>
-                                        <button
+                                        <button onClick={() => handleDelete(blog?._id)}
                                             className="btn btn-ghost btn-lg"
                                         >
-                                            <FaEdit className="text-blue-600 mr-5"></FaEdit>
+                                            {/* <FaEdit className="text-blue-600 mr-5"></FaEdit> */}
                                             <FaTrashAlt className="text-red-600"></FaTrashAlt>
                                         </button>
                                     </td>

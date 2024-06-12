@@ -12,6 +12,7 @@ const AdminDonationRequestCard = ({ data }) => {
             </div>
             <h1 className="text-center">Hospital Name: {data.hospital}</h1>
         </div>
+        
     );
 };
 

@@ -1,15 +1,47 @@
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import useAllDonationRequests from "../../Hooks/useAllDonationRequests";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 
 const DonationRequest = () => {
 
     const [donationRequests, loading, refetch] = useAllDonationRequests();
+    const axiosPublic = useAxiosPublic();
+
+    const handleDelete = async id => {
+        console.log(id);
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+        }).then(async (result) => {
+            if (result.isConfirmed) {
+                try {
+                    await axiosPublic.delete(`/deleteDonationRequest/${id}`);
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                    });
+                    const remainingPosts = donationRequests.filter(post => post.id !== id);
+                    // setMyPosts(remainingPosts);
+                    refetch(remainingPosts)
+                } catch (err) {
+                    // toast.error(err.message)
+                }
+            }
+        });
+    };
 
     return (
         <div>
-            <h1 className="text-center">Summary of all post will be here {donationRequests.length}</h1>
+            <h1 className="text-center">Summary of all request post will be here {donationRequests.length}</h1>
             
 
             <div>
@@ -65,6 +97,7 @@ const DonationRequest = () => {
 
 
                                         <td className="text-center">
+                                            {/* update button  */}
                                             <Link to={`/dashboard/donationRequests/update/${data?._id}`} >
                                                 <button
                                                     className="btn btn-ghost btn-lg"
@@ -74,7 +107,10 @@ const DonationRequest = () => {
 
                                             </Link>
 
+                                            
+                                            {/* delete button  */}
                                             <button
+                                                onClick={() => handleDelete(data?._id)}
                                                 className="btn btn-ghost btn-lg"
                                             >
                                                 <FaTrashAlt className="text-red-600"></FaTrashAlt>
