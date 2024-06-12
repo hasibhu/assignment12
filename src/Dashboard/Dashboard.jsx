@@ -41,8 +41,8 @@ const Dashboard = () => {
 
                     <div className="divider"></div>
                     <li><NavLink to='/'><FaHome className="mr-2" /> Home</NavLink></li>
-                    <li><NavLink to='/donationRequestPosts'><FaSearch className="mr-2" /> Donation</NavLink></li>
-                    <li><NavLink to='/order/contact'><FaEnvelope /> Contact</NavLink></li>
+                    <li><NavLink to='/donationRequestPosts'><FaSearch className="mr-2" /> Donation Requests</NavLink></li>
+                    <li><NavLink to='/dashboard/contact'><FaEnvelope /> Contact</NavLink></li>
                 </ul>
             </div>
             <div className="flex-1">

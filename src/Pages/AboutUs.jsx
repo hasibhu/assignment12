@@ -33,7 +33,7 @@ const AboutUs = () => {
                         </div>
                         <div className="p-4">
                             <p className="text-lg leading-relaxed w-[650px] text-center mx-auto">
-                                Our mission at [Blood Donation Club Name] is to save lives by connecting generous blood donors with those in need. We strive to create a community where every individual has the opportunity to contribute to the health and well-being of others through blood donation.
+                                Our mission at Nexas Blood Donation Club is to save lives by connecting generous blood donors with those in need. We strive to create a community where every individual has the opportunity to contribute to the health and well-being of others through blood donation.
                             </p>
                         </div>
                     </div>
@@ -78,7 +78,7 @@ const AboutUs = () => {
                         </div>
                         <div className="p-4">
                             <p className="text-lg leading-relaxed w-[650px] text-center mx-auto">
-                                [Blood Donation Club Name] organizes regular blood donation drives, educational campaigns, and community events to promote the importance of blood donation. We work closely with hospitals, healthcare providers, and other organizations to ensure a steady supply of safe blood for those in need.
+                                Nexas Blood Donation Club  organizes regular blood donation drives, educational campaigns, and community events to promote the importance of blood donation. We work closely with hospitals, healthcare providers, and other organizations to ensure a steady supply of safe blood for those in need.
                             </p>
                             <ul className="list-disc list-inside w-[650px] text-center mx-auto">
                                 <li>Coordinate blood donation drives in various locations</li>
@@ -100,7 +100,7 @@ const AboutUs = () => {
                         </div>
                         <div className="p-4">
                             <p className="text-lg leading-relaxed w-[650px] text-center mx-auto">
-                                There are many ways to get involved with [Blood Donation Club Name]. Whether you are a first-time donor, a regular donor, or someone looking to support our cause in other ways, we welcome you to join us.
+                                There are many ways to get involved with Nexas Blood Donation Club. Whether you are a first-time donor, a regular donor, or someone looking to support our cause in other ways, we welcome you to join us.
                             </p>
                             <ul className="list-disc list-inside w-[650px] text-center mx-auto">
                                 <li><strong>Donate Blood:</strong> Sign up for one of our upcoming blood donation drives.</li>
@@ -124,7 +124,7 @@ const AboutUs = () => {
                             </div>
                             <div className="p-4">
                                 <p className="text-lg leading-relaxed w-[650px] text-center mx-auto">
-                                    Our team is comprised of passionate individuals dedicated to making a difference. From our volunteer coordinators to our healthcare partners, every member of [Blood Donation Club Name] plays a vital role in our mission to save lives.
+                                    Our team is comprised of passionate individuals dedicated to making a difference. From our volunteer coordinators to our healthcare partners, every member of Nexas Blood Donation Club plays a vital role in our mission to save lives.
                                 </p>
                             </div>
                         </div>

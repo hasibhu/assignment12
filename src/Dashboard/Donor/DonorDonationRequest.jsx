@@ -15,7 +15,7 @@ const DonorDonationRequest = () => {
 
     return (
         <div className="mt-16 ">
-            <h1 className="text-center text-2xl">Your latest 3 donation requests: </h1>
+            <h1 className="text-center text-2xl p-6">Your latest 3 donation requests: </h1>
             <div className=" lg:grid lg:grid-cols-3 gap-3">
                 {
                     matchingRequests.slice(-3).map((matchingRequest) => <DonorDonationRequestCard key={matchingRequest._id} data={matchingRequest}></DonorDonationRequestCard>)

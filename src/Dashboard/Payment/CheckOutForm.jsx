@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 // import { useNavigate } from "react-router-dom";
 import UseAuth from "../../Hooks/UseAuth";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
 
 const CheckOutForm = () => {
     const stripe = useStripe();
@@ -158,6 +159,17 @@ const CheckOutForm = () => {
 
                 const res = await axiosPublic.post('/payments', payment);
                 console.log(res);
+                if (res) {
+                    Swal.fire({
+                        title: 'You Payment is Successfully Done!!',
+                        showClass: {
+                            popup: 'animate__animated animate__fadeInDown'
+                        },
+                        hideClass: {
+                            popup: 'animate__animated animate__fadeOutUp'
+                        }
+                    });
+                }
             }
         }
     };

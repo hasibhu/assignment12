@@ -27,6 +27,7 @@ import Payment from "../Dashboard/Payment/Payment";
 import PrivateRoute from "./PrivateRoute";
 import PrivateAdminRoute from "./PrivateAdminRoute";
 import PrivateVolunteerRoute from "./PrivateVolunteerRoute";
+import PrivateDonorRoute from "./PrivateDonorRoute";
 import VolunteerPaymentHistory from "../Dashboard/Volunteer/VolunteerPaymentHistory";
 import AboutUs from "../Pages/AboutUs";
 import BecomeADonor from "../SharedPages/HeropartComponent/BecomeADonor";
@@ -37,6 +38,7 @@ import Imprint from "../SharedPages/Imprint";
 import AllVolunteerRequests from "../Dashboard/Volunteer/AllVolunteerRequests";
 import UpdateDonationRequest from "../Dashboard/UpdateDonationRequest";
 import ManageDonationRequestDonor from "../Dashboard/Donor/ManageDonationRequestDonor";
+import Contact from "../Dashboard/Contact";
 
 
 
@@ -58,7 +60,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/donationPosts/:id',
-                element: <DonationRequestDetails></DonationRequestDetails>,
+                element: <PrivateRoute><DonationRequestDetails></DonationRequestDetails></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://server-weld-six.vercel.app/donationRequests/${params.id}`)
             },
             {
@@ -121,42 +123,42 @@ export const router = createBrowserRouter([
     //         //donor user route
             {
                 path: 'donorHome',
-                element: <DonorHome></DonorHome>
+                element: <PrivateDonorRoute><DonorHome></DonorHome></PrivateDonorRoute>
             },
             {
                 path: 'createDonationRequest',
-                element: <CreateDonationRequest></CreateDonationRequest>
+                element: <PrivateRoute><CreateDonationRequest></CreateDonationRequest></PrivateRoute>
             },
             {
                 path: 'manageDonationRequestDonor',
-                element: <ManageDonationRequestDonor></ManageDonationRequestDonor>
+                element: <PrivateDonorRoute><ManageDonationRequestDonor></ManageDonationRequestDonor></PrivateDonorRoute>
             },
             {
                 path: 'donorPayment',
-                element: <PrivateRoute><PaymentDonor></PaymentDonor></PrivateRoute>
+                element: <PrivateDonorRoute><PaymentDonor></PaymentDonor></PrivateDonorRoute>
             },
             {
                 path: 'donorPaymentHistory',
-                element: <DonorPaymentHistory></DonorPaymentHistory>
+                element: <PrivateDonorRoute><DonorPaymentHistory></DonorPaymentHistory></PrivateDonorRoute>
             },
    
     //         //admin routes
             {
                 path: 'adminHome',
-                element: <AdminHome></AdminHome>
+                element: <PrivateAdminRoute><AdminHome></AdminHome></PrivateAdminRoute>
 
             },
             {
                 path: 'userManagement',
-                element: <UserManagement></UserManagement>
+                element: <PrivateRoute><UserManagement></UserManagement></PrivateRoute>
             },
             {
                 path: 'donationRequest',
-                element: <DonationRequest></DonationRequest>
+                element: <PrivateAdminRoute><DonationRequest></DonationRequest></PrivateAdminRoute>
             },
             {
-                path: 'contentManagement',
-                element: <ContentManagement></ContentManagement>
+                path: 'contentManagement', //blog route
+                element: <PrivateAdminRoute><ContentManagement></ContentManagement></PrivateAdminRoute>
             },
             {
                 path: 'adminPayment',
@@ -164,11 +166,11 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'adminPaymentHistory',
-                element: <AdminPaymenHistory></AdminPaymenHistory>
+                element: <PrivateAdminRoute><AdminPaymenHistory></AdminPaymenHistory></PrivateAdminRoute>
             },
             {
                 path: 'allPaymentHistory',
-                element: <AllPaymentHistory></AllPaymentHistory>
+                element: <PrivateAdminRoute><AllPaymentHistory></AllPaymentHistory></PrivateAdminRoute>
             },
 
 
@@ -181,20 +183,20 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'userManagementByVolunteer',
-                element: <UserManagement></UserManagement>
+                element: <PrivateVolunteerRoute><UserManagement></UserManagement></PrivateVolunteerRoute>
             },
             {
                 path: 'allVolunteerDonationRequests',
-                element: <AllVolunteerRequests></AllVolunteerRequests>
+                element: <PrivateVolunteerRoute><AllVolunteerRequests></AllVolunteerRequests></PrivateVolunteerRoute>
             },
             {
                 path: 'createDonationRequestByVolunteer',
-                element: <CreateDonationRequest></CreateDonationRequest>
+                element: <PrivateRoute><CreateDonationRequest></CreateDonationRequest></PrivateRoute>
 
             },
             {
                 path: 'donationRequests/update/:id',
-                element: <UpdateDonationRequest></UpdateDonationRequest>,
+                element: <PrivateRoute><UpdateDonationRequest></UpdateDonationRequest></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://server-weld-six.vercel.app/donationRequests/${params.id}`)
 
             },
@@ -208,6 +210,10 @@ export const router = createBrowserRouter([
                     <VolunteerPaymentHistory></VolunteerPaymentHistory>
                     </PrivateVolunteerRoute>
             },
+            {
+                path: 'contact',
+                element: <Contact></Contact>
+            }
 
     
             
