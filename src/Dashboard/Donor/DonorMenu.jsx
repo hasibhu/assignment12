@@ -20,7 +20,7 @@ const DonorMenu = () => {
     return (
         <div>
             <li><NavLink to='/dashboard/donorHome'><FaHome className="mr-2" />Donor Home</NavLink></li>
-            <li><NavLink to='/dashboard/userManagement'><FaList /> User Management</NavLink></li>
+            {/* <li><NavLink to='/dashboard/userManagement'><FaList /> User Management</NavLink></li> */}
             <li><NavLink to='/dashboard/manageDonationRequest'><FaList /> Manage Donation Request</NavLink></li>
             {
                 matchedUserStatus === 'active' && <li><NavLink to='/dashboard/createDonationRequest'><FaEdit /> Create Donation Request</NavLink></li>

@@ -174,6 +174,10 @@ export const router = createBrowserRouter([
 
             },
             {
+                path: 'userManagementByVolunteer',
+                element: <UserManagement></UserManagement>
+            },
+            {
                 path: 'allVolunteerDonationRequests',
                 element: <AllVolunteerRequests></AllVolunteerRequests>
             },

@@ -16,6 +16,10 @@ const VolunteerMenu = () => {
     return (
         <div>
             <li><NavLink to='/dashboard/volunteerHome'><FaHome className="mr-2" />Volunteer Home</NavLink></li>
+            
+            {
+                matchedUserStatus === 'active' && <li><NavLink to='/dashboard/userManagementByVolunteer'><FaList /> User Management</NavLink></li>
+            }
             <li><NavLink to='/dashboard/allVolunteerDonationRequests'><FaList /> Donation Requests</NavLink></li>
             {
                 matchedUserStatus==='active' && <li><NavLink to='/dashboard/createDonationRequestByVolunteer'><FaEdit /> Create Donation Request</NavLink></li>
