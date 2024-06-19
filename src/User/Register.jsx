@@ -49,7 +49,7 @@ const Register = () => {
                                 district: data.district,
                                 upazila: data.upazila,
                                 bloodGroup: data.bloodGroup,
-                                role: 'volunteer',
+                                role: 'donor',
                                 status: 'active',
                                 image: res.data.data.display_url,
 
