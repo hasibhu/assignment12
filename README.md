@@ -3,7 +3,9 @@
 
 
 
-# >>
+<h4>Installation Steps
+Clone the repository:
+</h4>
 
 
 
@@ -13,13 +15,19 @@
 <h5>Data Fetching with Tanstack Query: Efficient and reliable data fetching. </h5>
 <h5>Home Page: Features navbar, search bar, tags section, announcements, and posts display with sorting and pagination. </h5>
 <h5>Membership Page: Allows users to become members, unlocking additional features. </h5>
+<h3>User dashboard: </h3>
+<h4>Admin dashboard: </h4>
+<h4>Volunteer dashboard: </h4>
+<h4>Donor dashboard: </h4>
+
+
 
 
 
 User Dashboard: Profile, add post, and my posts sections.
 Admin Dashboard: Profile, manage users, reported comments, and announcements.
-Installation Steps
-Clone the repository:
+
+
 
 Navigate to the project directory:
 cd folder-name
