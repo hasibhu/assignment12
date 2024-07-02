@@ -3,12 +3,12 @@
 
 
 
-<h4>Installation Steps</h4>
+# Installation Steps
 <h5>Clone the repository:</h5>
 <h6> git clone https://github.com/hasibhu/assignment12.git</h6>
-<h6> run: cd assignment12; npm i</h6>
-
-
+<h6> cd assignment12</h6>
+<h6> npm i</h6>
+<h6> npm run dev</h6>
 
 
 
@@ -22,7 +22,7 @@
 <h4>Admin dashboard: </h4>
 <h4>Volunteer dashboard: </h4>
 <h4>Donor dashboard: </h4>
-h5
+
 
 
 
@@ -33,23 +33,6 @@ Admin Dashboard: Profile, manage users, reported comments, and announcements.
 
 
 
-Navigate to the project directory:
-cd folder-name
-Install dependencies:
-npm install
-Notable Commits
-Client Side
-Implemented responsive design.
-Added persistent private routes.
-Secured credentials.
-Integrated custom notifications.
-Implemented data fetching with Tanstack Query.
-Developed dynamic Navbar, search bar, tags section, announcements, and posts display.
-Built post details, membership page, and user dashboard.
-Server Side
-Set up backend search, API for tags, announcements, secure routes, user badges, and post management.
-Implemented admin actions for reported comments.
-Secured credentials with environment variables.
 
 Thank you for exploring Nexas git code! Enjoy using the platform as much as we enjoyed building it.
 
