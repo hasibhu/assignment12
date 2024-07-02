@@ -3,9 +3,12 @@
 
 
 
-<h4>Installation Steps
-Clone the repository:
-</h4>
+<h4>Installation Steps</h4>
+<h5>Clone the repository:</h5>
+<h6> git clone https://github.com/hasibhu/assignment12.git</h6>
+<h6> run: cd assignment12; npm i</h6>
+
+
 
 
 
@@ -19,6 +22,7 @@ Clone the repository:
 <h4>Admin dashboard: </h4>
 <h4>Volunteer dashboard: </h4>
 <h4>Donor dashboard: </h4>
+h5
 
 
 
