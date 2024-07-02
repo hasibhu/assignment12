@@ -1,12 +1,13 @@
  website name: Nexas Blood Donation
 # Live Link: https://assignment12-a0d19.web.app/
 
-<h3> The purpose of the Blood Donation Application is to create a user-friendly platform that
+<h5> # The purpose of the Blood Donation Application is to create a user-friendly platform that
 facilitates blood donation activities. The application will connect donors with those in
-need of blood, promoting a seamless and efficient donation process.
-The application will include features for use(donor) registration, blood donation
+need of blood, promoting a seamless and efficient donation process.</h5>
+
+<h5> # The application will include features for use(donor) registration, blood donation
 requests, donor management, content management, and role-based access control. It
-will be built using the MERN stack (MongoDB, Express.js, React, Node.js).</h3>
+will be built using the MERN stack (MongoDB, Express.js, React, Node.js).</h5>
 
 # Installation Steps
 <h5>Clone the repository:</h5>
