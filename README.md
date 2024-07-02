@@ -28,8 +28,7 @@ will be built using the MERN stack (MongoDB, Express.js, React, Node.js).</h5>
 <h5>Persistent Private Routes: Users stay logged in on private routes even after reloading. </h5>
 <h5>Custom Notifications: Sweet alerts and toasts enhance user experience. </h5>
 <h5>Data Fetching with Tanstack Query: Efficient and reliable data fetching. </h5>
-<h5>Home Page: Features navbar, search bar, tags section, announcements, and posts display with sorting and pagination. </h5>
-<h5>Membership Page: Allows users to become members, unlocking additional features. </h5>
+<h5>Home Page: Features navbar, Donations Requests, Blogs, About Us, Login/logout(conditionally), payment,  and User Profile (with contional routing)  </h5>
 
 # 
 
