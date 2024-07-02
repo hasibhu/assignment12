@@ -4,12 +4,10 @@
 
 
 # >>
-Live Site URL
-Visit Barta
 
-Username: zioun@gmail.com
-Password: Ab123456#
-Features
+
+
+#. Features
 Responsive Design: Adapts seamlessly to all devices.
 Persistent Private Routes: Users stay logged in on private routes even after reloading.
 Secure Credentials: Environment variables hide sensitive data.
@@ -22,7 +20,7 @@ User Dashboard: Profile, add post, and my posts sections.
 Admin Dashboard: Profile, manage users, reported comments, and announcements.
 Installation Steps
 Clone the repository:
-git clone https://github.com/Zioun/Forum.git
+
 Navigate to the project directory:
 cd folder-name
 Install dependencies:
