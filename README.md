@@ -1,6 +1,7 @@
  website name: Nexas Blood Donation
 # Live Link: https://assignment12-a0d19.web.app/
 
+#Main Features Brief: 
 <h5> # The purpose of the Blood Donation Application is to create a user-friendly platform that
 facilitates blood donation activities. The application will connect donors with those in
 need of blood, promoting a seamless and efficient donation process.</h5>
@@ -9,7 +10,7 @@ need of blood, promoting a seamless and efficient donation process.</h5>
 requests, donor management, content management, and role-based access control. It
 will be built using the MERN stack (MongoDB, Express.js, React, Node.js).</h5>
 
-# Installation Steps
+# Installation Steps: 
 <h5>Clone the repository:</h5>
 <h6> git clone https://github.com/hasibhu/assignment12.git</h6>
 <h6> cd assignment12</h6>
@@ -18,7 +19,7 @@ will be built using the MERN stack (MongoDB, Express.js, React, Node.js).</h5>
 
 
 
-# Features
+# Features: 
 <h5>Persistent Private Routes: Users stay logged in on private routes even after reloading. </h5>
 <h5>Custom Notifications: Sweet alerts and toasts enhance user experience. </h5>
 <h5>Data Fetching with Tanstack Query: Efficient and reliable data fetching. </h5>
