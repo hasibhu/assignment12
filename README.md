@@ -9,7 +9,7 @@ Clone the repository:
 
 
 
-#. Features
+# Features
 <h5>Persistent Private Routes: Users stay logged in on private routes even after reloading. </h5>
 <h5>Custom Notifications: Sweet alerts and toasts enhance user experience. </h5>
 <h5>Data Fetching with Tanstack Query: Efficient and reliable data fetching. </h5>
