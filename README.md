@@ -8,8 +8,8 @@
 
 
 #. Features
-Responsive Design: Adapts seamlessly to all devices.
-Persistent Private Routes: Users stay logged in on private routes even after reloading.
+<h5>Persistent Private Routes: Users stay logged in on private routes even after reloading. </h5>
+
 Secure Credentials: Environment variables hide sensitive data.
 Custom Notifications: Sweet alerts and toasts enhance user experience.
 Data Fetching with Tanstack Query: Efficient and reliable data fetching.
