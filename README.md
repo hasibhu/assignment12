@@ -9,13 +9,13 @@
 
 #. Features
 <h5>Persistent Private Routes: Users stay logged in on private routes even after reloading. </h5>
+<h5>Custom Notifications: Sweet alerts and toasts enhance user experience. </h5>
+<h5>Data Fetching with Tanstack Query: Efficient and reliable data fetching. </h5>
+<h5>Home Page: Features navbar, search bar, tags section, announcements, and posts display with sorting and pagination. </h5>
+<h5>Membership Page: Allows users to become members, unlocking additional features. </h5>
 
-Secure Credentials: Environment variables hide sensitive data.
-Custom Notifications: Sweet alerts and toasts enhance user experience.
-Data Fetching with Tanstack Query: Efficient and reliable data fetching.
-Home Page: Features navbar, search bar, tags section, announcements, and posts display with sorting and pagination.
-Post Details Page: Includes author details, post content, comments, upvotes, downvotes, and sharing options.
-Membership Page: Allows users to become members, unlocking additional features.
+
+
 User Dashboard: Profile, add post, and my posts sections.
 Admin Dashboard: Profile, manage users, reported comments, and announcements.
 Installation Steps
@@ -38,10 +38,10 @@ Server Side
 Set up backend search, API for tags, announcements, secure routes, user badges, and post management.
 Implemented admin actions for reported comments.
 Secured credentials with environment variables.
-Thank you for exploring Barta! Enjoy using the platform as much as we enjoyed building it.
 
-Visit Barta Server Site
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Thank you for exploring Nexas git code! Enjoy using the platform as much as we enjoyed building it.
+
+
 
 Currently, two official plugins are available:
 
