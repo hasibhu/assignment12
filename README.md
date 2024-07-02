@@ -44,13 +44,7 @@ will be built using the MERN stack (MongoDB, Express.js, React, Node.js).</h5>
 <h4>Donor dashboard: </h4>
 <h6>Donor Home, Create Donation Request,  Create Blog Post,   Payment  </h6>
 
-
-
-
-
-
-User Dashboard: Profile, add post, and my posts sections.
-Admin Dashboard: Profile, manage users, reported comments, and announcements.
+# 
 
 
 
