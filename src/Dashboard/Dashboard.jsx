@@ -20,6 +20,7 @@ const Dashboard = () => {
 
     const matchingUser = users?.find(user => user?.email === loggedInUserEmail);
     const userRole = matchingUser?.role;
+    const helmetTtile = userRole?.toUpperCase() || 'User'
     console.log('matchin user role is : ', userRole);
     // const isAdmin = true;
 
@@ -27,7 +28,7 @@ const Dashboard = () => {
     return (
         <div className="lg:flex mt-8 border-t-4 border-yellow-500 rounded-xl pt-3">
             <Helmet>
-                <title>Nexas | User Dashboard </title>
+                <title>Nexas | {helmetTtile} Dashboard </title>
             </Helmet>
             <div className="w-64 min-h-full bg-orange-400">
                 <img className='mx-auto mt-5 w-36 h-22 rounded-full' src={logo} alt="" />

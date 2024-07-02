@@ -9,6 +9,7 @@ import SmoothScroll from '../SmoothScrooll/SmoothScroll'
 import "react-datepicker/dist/react-datepicker.css";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import useAllUsers from "../Hooks/useAllUsers";
 
 
 const imageHostingKey = '5cdd12cfea07d698a1fc45c46d4c3e83';
@@ -26,6 +27,10 @@ const CreateDonationRequest = () => {
     const asxioSecure = useAxiosSecure();
     const { user } = UseAuth();
     const navigate = useNavigate();
+    const [users, , refetch] = useAllUsers();
+    const loggedInUserEmail = user?.email;
+    const matchingUser = users?.find(user => user?.email === loggedInUserEmail);
+    const userRole = matchingUser?.role;
 
    
     const onSubmit = async (formData) => {
@@ -49,14 +54,15 @@ const CreateDonationRequest = () => {
                 district: formData.district,
                 upazila: formData.upazila,
                 bloodGroup: formData.bloodGroup,
-                // image: formData.image,
                 image: res.data.data.display_url,
                 date: startDate.toLocaleDateString(),
                 time: formData.time,
                 address: formData.fullAddress,
                 hospital: formData.hospitalName,
                 requestMessage: formData.requestMessage,
-                status: 'pending'
+                status: 'pending',
+                role: userRole
+
             };
 
 

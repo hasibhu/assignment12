@@ -39,6 +39,7 @@ import AllVolunteerRequests from "../Dashboard/Volunteer/AllVolunteerRequests";
 import UpdateDonationRequest from "../Dashboard/UpdateDonationRequest";
 import ManageDonationRequestDonor from "../Dashboard/Donor/ManageDonationRequestDonor";
 import Contact from "../Dashboard/Contact";
+import UpdateBlog from "../Dashboard/UpdateBlog";
 
 
 
@@ -172,6 +173,10 @@ export const router = createBrowserRouter([
                 path: 'allPaymentHistory',
                 element: <PrivateAdminRoute><AllPaymentHistory></AllPaymentHistory></PrivateAdminRoute>
             },
+            {
+                path: 'postBlogAdmin',
+                element: <PostYourBlog></PostYourBlog>
+            },
 
 
            
@@ -198,6 +203,12 @@ export const router = createBrowserRouter([
                 path: 'donationRequests/update/:id',
                 element: <PrivateRoute><UpdateDonationRequest></UpdateDonationRequest></PrivateRoute>,
                 loader: ({ params }) => fetch(`https://server-weld-six.vercel.app/donationRequests/${params.id}`)
+
+            },
+            {
+                path: 'blogs/update/:id',
+                element: <PrivateRoute><UpdateBlog></UpdateBlog></PrivateRoute>,
+                loader: ({ params }) => fetch(`https://server-weld-six.vercel.app/blogs/${params.id}`)
 
             },
             {

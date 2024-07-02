@@ -51,6 +51,7 @@ const PostYourBlog = () => {
                 image: res.data.data.display_url,
                 headLine: formData.headLine,
                 story: formData.story,
+                status:'UnPublished'
             };
 
 
@@ -87,7 +88,7 @@ const PostYourBlog = () => {
 
                 <div className="form-control">
                     <label className="label">
-                        <span className="label-text">Requestor Name</span>
+                        <span className="label-text">Bloger Name</span>
                     </label>
                     <input type="text" {...register("name")} disabled defaultValue={user?.displayName} className="input input-bordered " />
                     {errors.name && <span className='text-red-600'>This field is required</span>}

@@ -4,6 +4,7 @@ import { MdAttachMoney } from 'react-icons/md';
 import { NavLink } from 'react-router-dom';
 import UseAuth from '../../Hooks/UseAuth';
 import useAllUsers from '../../Hooks/useAllUsers';
+import { BiSolidDonateHeart } from 'react-icons/bi';
 
 const VolunteerMenu = () => {
 
@@ -20,8 +21,12 @@ const VolunteerMenu = () => {
                 matchedUserStatus === 'active' && <li><NavLink to='/dashboard/userManagementByVolunteer'><FaList /> User Management</NavLink></li>
             }
             <li><NavLink to='/dashboard/allVolunteerDonationRequests'><FaList /> Donation Requests</NavLink></li>
+            
             {
                 matchedUserStatus==='active' && <li><NavLink to='/dashboard/createDonationRequestByVolunteer'><FaEdit /> Create Donation Request</NavLink></li>
+            }
+            {
+                matchedUserStatus === 'active' && <li><NavLink to='/dashboard/postBlogAdmin'><BiSolidDonateHeart /> Add Blogs </NavLink></li>
             }
             <li><NavLink to='/dashboard/volunteerPayment'><MdAttachMoney className='text-2xl' /> Pay</NavLink></li>
             <li><NavLink to='/dashboard/volunteerPaymentHostory'><FaHistory /> Payment History</NavLink></li>

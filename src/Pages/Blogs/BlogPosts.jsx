@@ -13,6 +13,7 @@ const BlogPosts = () => {
         setVisibleBlogs(prevVisibleBlogs => prevVisibleBlogs + 3);
     };
 
+    const visibleBlog = blogs?.filter(blog => blog?.status === "Published")
     return (
         <div className='pt-28'>
             <h1 className='text-4xl text-center p-10 border-t-4 border-yellow-500 rounded-xl '>Discover Our Blog</h1>
@@ -31,7 +32,7 @@ const BlogPosts = () => {
                     <>
                         <div className='grid grid-cols-4 gap-4'>
                             {
-                                blogs?.slice(0, visibleBlogs).map(blog => (
+                                visibleBlog?.slice(0, visibleBlogs).map(blog => (
                                     <BlogCard key={blog._id} blog={blog} />
                                 ))
                             }
