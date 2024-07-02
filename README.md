@@ -30,15 +30,8 @@ will be built using the MERN stack (MongoDB, Express.js, React, Node.js).</h5>
 <h5>Home Page: Features navbar, search bar, tags section, announcements, and posts display with sorting and pagination. </h5>
 <h5>Membership Page: Allows users to become members, unlocking additional features. </h5>
 <h3>User dashboards: </h3>
-<h4>Admin dashboard: </h4>
-<h6>Admin Home </h6>
-<h6>Create Donation </h6>
-<h6>User Management </h6>
-<h6>Create Blog Post </h6>
-<h6>Blog Management </h6>
-<h6>Payment </h6>
-<h6>Admin Payment Hisrory </h6>
-<h6>All Payment Hisrory </h6>
+<h4>Admin dashboard: Admin Home, Create Donation Request, User Management, Create Blog Post,  Blog Management, Payment, Admin Payment Hisrory, All Payment Hisrory </h4>
+
 
 <h4>Volunteer dashboard: </h4>
 <h4>Donor dashboard: </h4>
