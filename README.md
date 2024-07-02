@@ -29,8 +29,17 @@ will be built using the MERN stack (MongoDB, Express.js, React, Node.js).</h5>
 <h5>Data Fetching with Tanstack Query: Efficient and reliable data fetching. </h5>
 <h5>Home Page: Features navbar, search bar, tags section, announcements, and posts display with sorting and pagination. </h5>
 <h5>Membership Page: Allows users to become members, unlocking additional features. </h5>
-<h3>User dashboard: </h3>
+<h3>User dashboards: </h3>
 <h4>Admin dashboard: </h4>
+<h6>Admin Home </h6>
+<h6>Create Donation </h6>
+<h6>User Management </h6>
+<h6>Create Blog Post </h6>
+<h6>Blog Management </h6>
+<h6>Payment </h6>
+<h6>Admin Payment Hisrory </h6>
+<h6>All Payment Hisrory </h6>
+
 <h4>Volunteer dashboard: </h4>
 <h4>Donor dashboard: </h4>
 
