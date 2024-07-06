@@ -27,11 +27,6 @@ const VolunteerRoute = ({ children }) => {
 
 
 
-    // if (user && userRole !== 'volunteer') return <Navigate to='/' state={{ from: location }} replace ></Navigate>;
-
-
-    // <Navigate to='/' state={{ from: location }} replace ></Navigate>
-
 };
 
 export default VolunteerRoute;
